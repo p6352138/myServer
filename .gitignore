@@ -1,0 +1,3 @@
+game-server\logs
+.DS_Store
+game-server\app\ai\aiData\.svn
