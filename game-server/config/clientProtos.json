@@ -1,0 +1,76 @@
+{
+  "gate.gateHandler.queryEntry": {
+    "required string code": 1
+  },
+
+  "connector.entryHandler.enter": {
+    "required string code": 1,
+    "message UserInfo": {
+      "required string name": 1,
+      "required string avatarUrl": 2,
+      "required uInt32 gender": 3
+    },
+    "required UserInfo userInfo": 2
+  },
+
+  "connector.matchHandler.match": {
+    "required string teamType": 1,
+    "required int32 dgId": 2,
+    "required uInt32 matchNum": 3
+  },
+
+  "fight.fightHandler.selectHero": {
+    "required int32 heroid": 1
+  },
+
+  "fight.fightHandler.playCard": {
+    "required int32 idx": 1,
+    "required int32 cid": 2,
+    "required string tid": 3
+  },
+
+  "fight.fightHandler.loadProgress": {
+    "required int32 progress": 1
+  },
+
+  "connector.raidHandler.raidSelectHero": {
+    "required int32 raidID": 1,
+    "required int32 heroid": 2
+  },
+
+  "connector.raidHandler.raidSelectAndEnterRoom": {
+    "required int32 raidID": 1,
+    "required int32 roomIdx": 2,
+    "required int32 idx": 3
+  },
+
+  "connector.raidHandler.raidEnterRoom": {
+    "required int32 raidID": 1,
+    "required int32 roomIdx": 2
+  },
+
+  "connector.raidHandler.raidGetCard": {
+    "required int32 raidID": 1,
+    "required int32 cardID": 2
+  },
+
+  "connector.raidHandler.teamRaidSelectHero": {
+    "required uInt32 heroid": 1
+  },
+
+  "connector.raidHandler.teamRaidSelectRoom": {
+    "required uInt32 roomIdx": 1
+  },
+
+  "connector.raidHandler.teamRaidGetCard": {
+    "required uInt32 cardID": 1
+  },
+
+  "connector.friendHandler.getRecommendList": {
+    "required uInt32 oppositeSex": 1
+  },
+
+  "connector.entryHandler.exchangeSilver": {
+    "required uInt32 gold": 1
+  }
+}

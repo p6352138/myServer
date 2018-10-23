@@ -1,0 +1,527 @@
+{
+  "onBeginSelect": {
+    "message TeamInfo": {
+      "message Member": {
+        "required string uid": 1,
+        "required string openid": 2,
+        "required string name": 3
+      },
+      "repeated Member teamA": 1,
+      "repeated Member teamB": 2
+    },
+    "required TeamInfo teamInfo": 1
+  },
+
+  "onSelectHeroNotify": {
+    "required string uid": 1,
+    "required uInt32 heroid": 2
+  },
+
+  "onConfirmHeroNotify": {
+    "required string uid": 1,
+    "required uInt32 heroid": 2
+  },
+
+  "onStartLoad": {
+    "message MyInfo": {
+      "required uInt32 mp": 1,
+      "required uInt32 thew": 2,
+      "required uInt32 cardsNum": 3,
+      "required uInt32 discardsNum": 4,
+      "required uInt32 exhaustsNum": 5,
+      "required uInt32 mpRecoverTime": 6,
+      "required uInt32 mpRecoverRate": 7,
+      "required uInt32 stopMpRecoverBuffCnt": 8,
+      "repeated uInt32 inHands": 9,
+      "message CardsLv": {
+        "required uInt32 cid": 1,
+        "required uInt32 lv": 2
+      },
+      "repeated CardsLv cardsLv": 10
+    },
+    "required MyInfo myInfo": 1,
+    "message TeamInfo": {
+      "message Entity": {
+        "optional uInt32 heroid": 1,
+        "optional uInt32 monsterid": 2,
+        "required uInt32 inHandsNum": 3,
+        "required uInt32 lv": 4,
+        "required uInt32 hp": 5,
+        "required uInt32 maxHp": 6,
+        "required uInt32 mp": 7,
+        "required uInt32 maxMp": 8,
+        "required uInt32 thew": 9,
+        "required uInt32 maxThew": 10,
+        "required uInt32 armor": 11,
+        "required uInt32 pos": 12,
+        "required float scale": 13,
+        "required string uid": 14,
+        "message Buff": {
+          "required uInt32 id": 1,
+          "required string realID": 2,
+          "message Cell": {
+            "required int32 endTime": 1,
+            "required string casterID": 2,
+            "optional uInt32 effectNum": 3
+          },
+          "repeated Cell cells": 3
+        },
+        "repeated Buff buffs": 15,
+        "required string groupId": 16,
+        "optional string name": 17
+      },
+      "repeated Entity teamA": 1,
+      "repeated Entity teamB": 2
+    },
+    "required TeamInfo teamInfo": 2,
+    "required uInt32 dgId": 3,
+    "required string matchType": 4,
+    "required uInt32 matchNum": 5,
+    "message SpawnSummons": {
+      "message Group": {
+        "message Area": {
+          "optional uInt32 1": 1,
+          "optional uInt32 2": 2,
+          "optional uInt32 3": 3
+        },
+        "optional Area wSword": 1
+      },
+      "required Group groupA": 1,
+      "required Group groupB": 2,
+      "required uInt32 seed": 3
+    },
+    "required SpawnSummons spawnSummons": 6
+  },
+
+  "onUseCard": {
+    "required uInt32 mp": 1,
+    "required uInt32 thew": 2,
+    "repeated uInt32 inHands": 3,
+    "optional uInt32 exhaustsNum": 4,
+    "optional uInt32 discardsNum": 5
+  },
+
+  "onUseCardNotify": {
+    "required string uid": 1,
+    "required uInt32 cid": 2,
+    "required string tid": 3,
+    "required uInt32 inHandsNum": 4
+  },
+
+  "onDrawCard": {
+    "repeated uInt32 inHands": 1,
+    "required uInt32 cardsNum": 2,
+    "optional uInt32 discardsNum": 3
+  },
+
+  "onDrawCardNotify": {
+    "required uInt32 inHandsNum": 1
+  },
+
+  "onMpRecover": {
+    "required uInt32 mp": 1
+  },
+
+  "onAddSpawnSummon": {
+    "required string groupId": 1,
+    "required string type": 2,
+    "message AreaInfo": {
+      "required uInt32 area": 1,
+      "required uInt32 num": 2
+    },
+    "repeated AreaInfo addList": 3
+  },
+
+  "onRemoveSpawnSummon": {
+    "required string groupId": 1,
+    "required string type": 2,
+    "message AreaInfo": {
+      "required uInt32 area": 1,
+      "required uInt32 num": 2
+    },
+    "repeated AreaInfo removeList": 3
+  },
+
+  "onClearSpawnSummon": {
+    "required string groupId": 1,
+    "required string type": 2
+  },
+
+  "onUseSkill": {
+    "required string caster": 1,
+    "required uInt32 sid": 2,
+    "required uInt32 slv": 3,
+    "message Targets": {
+      "repeated string 1": 1,
+      "repeated string 2": 2,
+      "repeated string 3": 3,
+      "repeated string 4": 4
+    },
+    "required Targets targets": 4
+  },
+
+  "onSpecificDrawCard": {
+    "message GotCard": {
+      "required uInt32 pileType": 1,
+      "required uInt32 card": 2
+    },
+    "repeated GotCard got": 1,
+    "repeated uInt32 inHands": 2
+  },
+
+  "onSpecificDrawCardNotify": {
+    "required string targetID": 1,
+    "required uInt32 inHandsNum": 2,
+    "message From": {
+      "optional uInt32 1": 1,
+      "optional uInt32 2": 2,
+      "optional uInt32 3": 3
+    },
+    "required From from": 3
+  },
+
+  "onCreateCard": {
+    "required uInt32 num": 1,
+    "repeated uInt32 inHands": 2
+  },
+
+  "onCreateCardNotify": {
+    "required string uid": 1,
+    "required uInt32 num": 2,
+    "required uInt32 inHandsNum": 3
+  },
+
+  "onHeal": {
+    "required string casterID": 1,
+    "required string targetID": 2,
+    "required uInt32 sid": 3,
+    "required uInt32 fromHp": 4,
+    "required uInt32 toHP": 5
+  },
+
+  "onRelive": {
+    "required uInt32 sid": 1,
+    "required string casterID": 2,
+    "required uInt32 casterHp": 3,
+    "required string targetID": 4,
+    "required uInt32 hp": 5
+  },
+
+  "onBuffUpdate": {
+    "required string targetID": 1,
+    "required string realID": 2,
+    "message Buff": {
+      "required uInt32 id": 1,
+      "required string realID": 2,
+      "required uInt32 layer": 3,
+      "message Cell": {
+        "required int32 endTime": 1,
+        "required string casterID": 2
+      },
+      "repeated Cell cells": 4
+    },
+    "optional Buff info": 3
+  },
+
+  "onBuffModHp": {
+    "required uInt32 buffID": 1,
+    "required string casterID": 2,
+    "required string targetID": 3,
+    "required uInt32 fromHp": 4,
+    "required uInt32 toHP": 5,
+    "required int32 val": 6
+  },
+
+  "onDropCard": {
+    "message DropItem": {
+      "required uInt32 idx": 1,
+      "required uInt32 card": 2,
+      "required uInt32 toPile": 3
+    },
+    "repeated DropItem dropInfo": 1,
+    "repeated uInt32 inHands": 2
+  },
+
+  "onDropCardNotify": {
+    "required string targetID": 1,
+    "required uInt32 inHandsNum": 2,
+    "message ToPile": {
+      "optional uInt32 1": 1,
+      "optional uInt32 2": 2,
+      "optional uInt32 3": 3
+    },
+    "required ToPile toPile": 3
+  },
+
+  "onAddMonsterSummon": {
+    "required string casterID": 1,
+    "required uInt32 casterPos": 2,
+    "message Entity": {
+      "optional uInt32 heroid": 1,
+      "optional uInt32 monsterid": 2,
+      "required uInt32 inHandsNum": 3,
+      "required uInt32 lv": 4,
+      "required uInt32 hp": 5,
+      "required uInt32 maxHp": 6,
+      "required uInt32 mp": 7,
+      "required uInt32 maxMp": 8,
+      "required uInt32 thew": 9,
+      "required uInt32 maxThew": 10,
+      "required uInt32 armor": 11,
+      "required uInt32 pos": 12,
+      "required float scale": 13,
+      "required string uid": 14,
+      "message Buff": {
+        "required uInt32 id": 1,
+        "required string realID": 2,
+        "message Cell": {
+          "required int32 endTime": 1,
+          "required string casterID": 2,
+          "optional uInt32 effectNum": 3
+        },
+        "repeated Cell cells": 3
+      },
+      "repeated Buff buffs": 15,
+      "required string groupId": 16,
+      "optional string name": 17
+    },
+    "repeated Entity newEnts": 3
+  },
+
+  "onGetMp": {
+    "required uInt32 mp": 1
+  },
+
+  "onMpRecoverRateUpdate": {
+    "required uInt32 stopMpRecoverBuffCnt": 1,
+    "required float mpRecoverRate": 2
+  },
+
+  "onSkillEffective": {
+    "required string casterID": 1,
+    "required uInt32 sid": 2
+  },
+
+  "onDamage": {
+    "required string targetID": 1,
+    "required string attackerID": 2,
+    "required uInt32 sid": 3,
+    "required uInt32 oriDamage": 4,
+    "required uInt32 hp": 5,
+    "required uInt32 armor": 6
+  },
+
+  "onLoadProgress": {
+    "required string uid": 1,
+    "required uInt32 progress": 2
+  },
+
+  "onAddMonster": {
+    "message Entity": {
+      "optional uInt32 heroid": 1,
+      "optional uInt32 monsterid": 2,
+      "required uInt32 inHandsNum": 3,
+      "required uInt32 lv": 4,
+      "required uInt32 hp": 5,
+      "required uInt32 maxHp": 6,
+      "required uInt32 mp": 7,
+      "required uInt32 maxMp": 8,
+      "required uInt32 thew": 9,
+      "required uInt32 maxThew": 10,
+      "required uInt32 armor": 11,
+      "required uInt32 pos": 12,
+      "required float scale": 13,
+      "required string uid": 14,
+      "message Buff": {
+        "required uInt32 id": 1,
+        "required string realID": 2,
+        "message Cell": {
+          "required int32 endTime": 1,
+          "required string casterID": 2,
+          "optional uInt32 effectNum": 3
+        },
+        "repeated Cell cells": 3
+      },
+      "repeated Buff buffs": 15,
+      "required string groupId": 16
+    },
+    "required Entity monsterInfo": 1
+  },
+
+  "onBounce": {
+    "required uInt32 sid": 1,
+    "required string casterID": 2,
+    "message DamageInfo": {
+      "required string targetID": 1,
+      "required uInt32 fromHp": 2,
+      "required uInt32 fromArmor": 3,
+      "required uInt32 toHp": 4,
+      "required uInt32 toArmor": 5
+    },
+    "repeated DamageInfo damageLine": 3
+  },
+
+  "onAllFriendsInfo": {
+    "message FriendData": {
+      "required string eid": 1,
+      "required string openid": 2,
+      "required uInt32 relation": 3,
+      "required string name": 4,
+      "required uInt32 gender": 5,
+      "required string avatarUrl": 6
+    },
+    "repeated FriendData friends": 1,
+    "message InviterInfo": {
+      "required string eid": 1,
+      "required string openid": 2
+    },
+    "repeated InviterInfo invitedList": 2
+  },
+
+  "onAddInviter": {
+    "required string eid": 1,
+    "required string openid": 2
+  },
+
+  "onAddFriendBeRefused": {
+    "required string name": 1
+  },
+
+  "onNewFriend": {
+    "required string eid": 1,
+    "required string openid": 2,
+    "required uInt32 relation": 3
+  },
+
+  "onAcceptFriendNotify": {
+    "required string name": 1
+  },
+
+  "onDeleteFriend": {
+    "required string eid": 1
+  },
+
+  "onRefreshTeam": {
+    "required string teamType": 1,
+    "required string teamId": 2,
+    "required uInt32 specialId": 3,
+    "message MemberInfo": {
+      "required string id": 1,
+      "required string openid": 2,
+      "required uInt32 pos": 3,
+      "required uInt32 ready": 4,
+      "required uInt32 punishBeginTime": 5,
+      "required uInt32 rank": 6
+    },
+    "repeated MemberInfo members": 4
+  },
+
+  "onTeamInvited": {
+    "required string id": 1,
+    "required string openid": 2,
+    "required string teamType": 3,
+    "required uInt32 rank": 4,
+    "required string teamId": 5,
+    "required uInt32 specialId": 6
+  },
+
+  "onTeamApplyed": {
+    "required string id": 1,
+    "required string openid": 2,
+    "required uInt32 rank": 3,
+    "required string teamType": 4,
+    "required string teamId": 5,
+    "required uInt32 specialId": 6
+  },
+
+  "onTeamBeRefused": {
+    "required string name": 1
+  },
+
+  "onTeamReadyStateChange": {
+    "required string id": 1,
+    "required uInt32 ready": 2
+  },
+
+  "onBeginMatch": {
+    "required uInt32 predictTime": 1
+  },
+
+  "onPunishBeginTimeUpdate": {
+    "required uInt32 punishBeginTime": 1
+  },
+
+  "onLadderInfoUpdate": {
+    "required uInt32 rank": 1,
+    "required uInt32 star": 2
+  },
+
+  "onRaidInfoUpdate": {
+    "required uInt32 raidID": 1,
+    "message RaidInfo": {
+      "required uInt32 raidID": 1,
+      "required uInt32 heroid": 2,
+      "repeated uInt32 cards": 3,
+      "required uInt32 hp": 4,
+      "required uInt32 maxHp": 5,
+      "message RoomInfo": {
+        "required uInt32 state": 1,
+        "optional string type": 2,
+        "optional uInt32 id": 3,
+        "repeated uInt32 selectList": 4,
+        "repeated uInt32 cardsList": 5
+      },
+      "repeated RoomInfo rooms": 6
+    },
+    "optional RaidInfo info": 2
+  },
+
+  "onTeamRaidBeginSelectHero": {
+    "message TeamMember": {
+      "required string uid": 1,
+      "required string openid": 2,
+      "required string name": 3
+    },
+    "repeated TeamMember teamInfo": 1
+  },
+
+  "onTeamRaidSelectHeroNotify": {
+    "required string uid": 1,
+    "required uInt32 heroid": 2
+  },
+
+  "onTeamRaidConfirmHeroNotify": {
+    "required string uid": 1,
+    "required uInt32 heroid": 2
+  },
+
+  "onTeamRaidMembersUpdate": {
+    "message MemberInfo": {
+      "required string uid": 1,
+      "required string openid": 2,
+      "required string name": 3,
+      "required uInt32 heroid": 4,
+      "repeated uInt32 cards": 5,
+      "required uInt32 hp": 6,
+      "required uInt32 maxHp": 7
+    },
+    "repeated MemberInfo teamInfo": 1
+  },
+
+  "onTeamRaidShowRoomList": {
+    "message RoomInfo": {
+      "required string type": 1,
+      "required uInt32 id": 2
+    },
+    "repeated RoomInfo selectList": 1
+  },
+
+  "onTeamRaidRoomSelected": {
+    "required string uid": 1,
+    "required uInt32 idx": 2
+  },
+
+  "onTeamRaidBeginGetCard": {
+    "repeated uInt32 cardsList": 1
+  }
+}

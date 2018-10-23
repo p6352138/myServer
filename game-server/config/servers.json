@@ -1,0 +1,233 @@
+{
+  "development": {
+    "connector": [
+      {
+        "id": "connector-server-1##2",
+        "name": "connector-server-1",
+        "host": "127.0.0.1",
+        "publicHost": "127.0.0.1",
+        "port": 3150,
+        "clientPort": 3011,
+        "frontend": true,
+        "args": " --inspect=33150"
+      },
+      {
+        "id": "connector-server-2##2",
+        "name": "connector-server-2",
+        "host": "127.0.0.1",
+        "publicHost": "127.0.0.1",
+        "port": 3151,
+        "clientPort": 3012,
+        "frontend": true,
+        "args": " --inspect=33151"
+      }
+    ],
+    "fight": [
+      {
+        "id": "fight-server-pve_1-1##2",
+        "name": "fight-server-pve_1-1",
+        "host": "127.0.0.1",
+        "port": 6050,
+        "fight": "PVE",
+        "matchNum": 1,
+        "args": " --inspect=36050"
+      }
+    ],
+    "gate": [
+      {
+        "id": "gate-server-1##2",
+        "name": "gate-server-1",
+        "host": "127.0.0.1",
+        "clientPort": 3010,
+        "frontend": true,
+        "args": " --inspect=33010"
+      }
+    ],
+    "auth": [
+      {
+        "id": "auth-server-1##2",
+        "name": "auth-server-1",
+        "host": "127.0.0.1",
+        "port": 4150,
+        "args": " --inspect=34150"
+      }
+    ]
+  },
+  "production": {
+    "connector": [
+      {
+        "id": "connector-server-1##2",
+        "name": "connector-server-1",
+        "host": "127.0.0.1",
+        "publicHost": "127.0.0.1",
+        "port": 3150,
+        "clientPort": 3011,
+        "frontend": true
+      },
+      {
+        "id": "connector-server-2##2",
+        "name": "connector-server-2",
+        "host": "127.0.0.1",
+        "publicHost": "127.0.0.1",
+        "port": 3151,
+        "clientPort": 3012,
+        "frontend": true
+      }
+    ],
+    "fight": [
+      {
+        "id": "fight-server-pve_1-1##2",
+        "name": "fight-server-pve_1-1",
+        "host": "127.0.0.1",
+        "port": 6050,
+        "fight": "PVE",
+        "matchNum": 1
+      }
+    ],
+    "gate": [
+      {
+        "id": "gate-server-1##2",
+        "name": "gate-server-1",
+        "host": "127.0.0.1",
+        "clientPort": 3010,
+        "frontend": true
+      }
+    ],
+    "auth": [
+      {
+        "id": "auth-server-1##2",
+        "name": "auth-server-1",
+        "host": "127.0.0.1",
+        "port": 4150
+      }
+    ]
+  },
+  "global_dev": {
+    "fight": [
+      {
+        "id": "fight-server-pve_2-1",
+        "host": "127.0.0.1",
+        "port": 26060,
+        "fight": "PVE",
+        "matchNum": 2,
+        "args": " --inspect=46060"
+      },
+      {
+        "id": "fight-server-pve_3-1",
+        "host": "127.0.0.1",
+        "port": 26070,
+        "fight": "PVE",
+        "matchNum": 3,
+        "args": " --inspect=46070"
+      },
+      {
+        "id": "fight-server-pve_4-1",
+        "host": "127.0.0.1",
+        "port": 26080,
+        "fight": "PVE",
+        "matchNum": 4,
+        "args": " --inspect=46080"
+      },
+      {
+        "id": "fight-server-pvp-1",
+        "host": "127.0.0.1",
+        "port": 26090,
+        "fight": "PVP",
+        "matchNum": 4,
+        "args": " --inspect=46090"
+      }
+    ],
+    "match": [
+      {
+        "id": "match-server-1",
+        "host": "127.0.0.1",
+        "port": 25050,
+        "args": " --inspect=45050"
+      }
+    ],
+    "friend": [
+      {
+        "id": "friend-server-1",
+        "host": "127.0.0.1",
+        "port": 25060,
+        "args": " --inspect=45060"
+      }
+    ],
+    "authGlobal": [
+      {
+        "id": "auth-global-server-1",
+        "host": "127.0.0.1",
+        "port": 24160,
+        "args": " --inspect=44160"
+      }
+    ],
+    "team": [
+      {
+        "id": "team-server-1",
+        "host": "127.0.0.1",
+        "port": 25510,
+        "args": " --inspect=45510"
+      }
+    ]
+  },
+  "global_pro": {
+    "fight": [
+      {
+        "id": "fight-server-pve_2-1",
+        "host": "127.0.0.1",
+        "port": 26060,
+        "fight": "PVE",
+        "matchNum": 2
+      },
+      {
+        "id": "fight-server-pve_3-1",
+        "host": "127.0.0.1",
+        "port": 26070,
+        "fight": "PVE",
+        "matchNum": 3
+      },
+      {
+        "id": "fight-server-pve_4-1",
+        "host": "127.0.0.1",
+        "port": 26080,
+        "fight": "PVE",
+        "matchNum": 4
+      },
+      {
+        "id": "fight-server-pvp-1",
+        "host": "127.0.0.1",
+        "port": 26090,
+        "fight": "PVP",
+        "matchNum": 4
+      }
+    ],
+    "match": [
+      {
+        "id": "match-server-1",
+        "host": "127.0.0.1",
+        "port": 25050
+      }
+    ],
+    "friend": [
+      {
+        "id": "friend-server-1",
+        "host": "127.0.0.1",
+        "port": 25060
+      }
+    ],
+    "authGlobal": [
+      {
+        "id": "auth-global-server-1",
+        "host": "127.0.0.1",
+        "port": 24160
+      }
+    ],
+    "team": [
+      {
+        "id": "team-server-1",
+        "host": "127.0.0.1",
+        "port": 25510
+      }
+    ]
+  }
+}
