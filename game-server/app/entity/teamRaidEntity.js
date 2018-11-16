@@ -245,6 +245,7 @@ pro._enterRoom = function () {
                 openid: member.openid,
                 sid: member.sid,
                 name: member.name,
+                level: member.level,
                 heroid: member.heroid,
                 inTeam: 1
             }

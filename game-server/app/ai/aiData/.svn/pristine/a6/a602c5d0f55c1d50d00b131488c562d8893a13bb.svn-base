@@ -1,0 +1,98 @@
+// !!!auto generate!!!
+var bt_consts = require('../bt_consts');
+var btreeManager = require('../btreeManager');
+var nodes = require('../nodes/leafNodes');
+var consts = require('../../common/consts');
+
+var TREE_NAME = "bt_test_entity";
+
+/**
+ * 是否拥有卡牌 10001
+ */
+var n00_isCardInHand = function(owner) {
+    return nodes.isCardInHand(owner, 10001);
+};
+
+
+/**
+ * 使用卡牌 10001 是否灵力足够
+ */
+var n01_isMpEnoughToUseCard = function(owner) {
+    return nodes.isMpEnoughToUseCard(owner, 10001);
+};
+
+
+/**
+ * 使用卡牌 10001 是否体力足够
+ */
+var n02_isThewEnoughToUseCard = function(owner) {
+    return nodes.isThewEnoughToUseCard(owner, 10001);
+};
+
+
+/**
+ * 选择目标
+ */
+var n03_selectTarget = function(owner) {
+    return nodes.selectTarget(owner, consts.Skill.TEAM_ENEMY, "hp", "up", consts.State.ALIVE);
+};
+
+
+/**
+ * 是否可使用卡牌 10001
+ */
+var n04_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10001);
+};
+
+
+/**
+ * 行为树测试
+ */
+var n05_showText = function(owner) {
+    return nodes.showText("可以使用", 0);
+};
+
+
+/**
+ * 属性判断
+ */
+var n06_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "target", "hp", ">", 100);
+};
+
+
+/**
+ * 行为树测试
+ */
+var n07_showText = function(owner) {
+    return nodes.showText("有卡牌，灵力足，体力足，目标选择完成", 0);
+};
+
+
+// btree define
+var bt_code = {
+    n_root: {type: bt_consts.NodeType.ROOT, children: ['n0_Sequence']},
+    // Sequence
+    n0_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n00_isCardInHand', 'n01_isMpEnoughToUseCard', 'n02_isThewEnoughToUseCard', 'n03_selectTarget', 'n04_canUseCard', 'n05_showText', 'n06_checkAttributes', 'n07_showText']},
+    n00_isCardInHand: {type: bt_consts.NodeType.LEAF, func: n00_isCardInHand},
+    n01_isMpEnoughToUseCard: {type: bt_consts.NodeType.LEAF, func: n01_isMpEnoughToUseCard},
+    n02_isThewEnoughToUseCard: {type: bt_consts.NodeType.LEAF, func: n02_isThewEnoughToUseCard},
+    n03_selectTarget: {type: bt_consts.NodeType.LEAF, func: n03_selectTarget},
+    n04_canUseCard: {type: bt_consts.NodeType.LEAF, func: n04_canUseCard},
+    n05_showText: {type: bt_consts.NodeType.LEAF, func: n05_showText},
+    n06_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n06_checkAttributes},
+    n07_showText: {type: bt_consts.NodeType.LEAF, func: n07_showText}
+};
+
+
+var res = btreeManager.createTree(TREE_NAME, bt_code);
+if (!res) {
+    throw new Error("load btree failed!!! tree name is " + TREE_NAME);
+};
+
+// 引入子树
+for (var name in bt_code) {
+    if (bt_code[name].type == bt_consts.NodeType.SUBTREE)
+        require('./' + bt_code[name].subtree);
+};

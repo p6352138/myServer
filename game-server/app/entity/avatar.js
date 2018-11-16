@@ -14,55 +14,64 @@ var AUTO_SAVE_TICK = 1000 * 60 * 5  // 自动存盘时间
 
 var Avatar = function (opts) {
     opts = opts || {};
-    opts.components = ['avatarProp', 'friend', 'match', 'hero', 'dungeon', 'ladder', 'team', 'raid', 'gm'];  // avatar组件
+    // avatar组件
+    opts.components = ['avatarProp', 'bag', 'friend', 'match', 'hero',
+        'dungeon', 'ladder', 'team', 'raid', 'mail', 'gm'];
     Entity.call(this, opts);
 
     this.logoutTimer = null;
     this.serverId = pomelo.app.get('serverId');
-    this.session_key = opts.session_key ? opts.session_key: "";
+    this.session_key = opts.session_key ? opts.session_key : "";
     this.userState = "";  // 微信存管状态
 
     this.sessionSetting = {}  // session设置
-    
+
     this.initDBModel();  // 初始化存盘的Model
     this.dbTimer = setInterval(function () {
         this.save();
     }.bind(this), AUTO_SAVE_TICK);  // 自动存盘
 
-    pomelo.app.rpc.authGlobal.authRemote.checkin(null, this.openid, this.id, pomelo.app.getServerId(), null);
+    pomelo.app.rpc.authGlobal.authRemote.globalCheckin(null, this.openid, this.id, pomelo.app.getServerId(), null);
 };
 
 util.inherits(Avatar, Entity);
 module.exports = Avatar;
 
-Avatar.prototype.initDBModel = function () {
+let pro = Avatar.prototype;
+
+pro.initDBModel = function () {
     this.db = pomelo.app.db.getModel("Avatar");
 };
 
-Avatar.prototype.updateUserInfo = function (userInfo) {
+pro.updateUserInfo = function (userInfo, bLogin) {
     this.name = userInfo.name;
     this.avatarUrl = userInfo.avatarUrl;
     this.gender = userInfo.gender
 
-    this.emit("EventLogin", this);
+    if (bLogin) {
+        this.emit("EventLogin", this);
+    }
 };
 
 // 存盘信息更新
-Avatar.prototype.getDBProp = function () {
+pro.getDBProp = function () {
     let props = this.avatarProp.getPersistProp();
     props['_id'] = this.id;
     props['ladder'] = this.ladder.getPersistData();
     props['raid'] = this.raid.getPersistData();
+    props['bag'] = this.bag.getPersistData();
+    props['mail'] = this.mail.getPersistData();
+    props['hero'] = this.hero.getPersistData();
     return props;
 };
 
 // 存盘
-Avatar.prototype.save = function (cb) {
+pro.save = function (cb) {
     var self = this;
     var prop = self.getDBProp();
-    var options = {upsert : true};
+    var options = {upsert: true};
     self.db.update({_id: self.id}, prop, options, function (err, product) {
-        if (err){
+        if (err) {
             self.logger.info(" save db error: " + err);
             if (cb) {
                 cb(false);
@@ -77,7 +86,7 @@ Avatar.prototype.save = function (cb) {
 };
 
 // 登录时发给客户端
-Avatar.prototype.clientLoginInfo = function () {
+pro.clientLoginInfo = function () {
     return {
         id: this.id,
         openid: this.openid,
@@ -85,20 +94,24 @@ Avatar.prototype.clientLoginInfo = function () {
         gold: this.gold,
         freeGold: this.freeGold,
         silver: this.silver,
+        power: this.power,
         matchInfo: this.match.getClientInfo(),
         friendsInfo: this.friend.getClientInfo(),
         teamInfo: this.team.getClientInfo(),
         ladderInfo: this.ladder.getClientInfo(),
         raidsInfo: this.raid.getClientInfo(),
+        bagInfo: this.bag.getClientInfo(),
+        mailInfo: this.mail.getClientInfo(),
+        heroInfo: this.hero.getClientInfo(),
     }
 };
 
 // 增加session setting
-Avatar.prototype.setSessionSetting = function (key, value) {
+pro.setSessionSetting = function (key, value) {
     this.sessionSetting[key] = value;
 };
 
-Avatar.prototype._getCurSession = function () {
+pro._getCurSession = function () {
     var sessionService = pomelo.app.get('sessionService');
     var sessions = sessionService.getByUid(this.id);
     if (!sessions || sessions.length === 0) {
@@ -108,7 +121,7 @@ Avatar.prototype._getCurSession = function () {
     return sessions[0];
 };
 
-Avatar.prototype.removeSessionSetting = function (key, bSync) {
+pro.removeSessionSetting = function (key, bSync) {
     delete this.sessionSetting[key];
     if (bSync) {
         var session = this._getCurSession();
@@ -119,7 +132,7 @@ Avatar.prototype.removeSessionSetting = function (key, bSync) {
     }
 };
 
-Avatar.prototype.importSessionSetting = function (cb) {
+pro.importSessionSetting = function (cb) {
     var session = this._getCurSession();
     if (session) {
         session.set(this.sessionSetting);
@@ -144,7 +157,7 @@ Avatar.prototype.importSessionSetting = function (cb) {
 };
 
 // 上报key-value数据到微信用户的CloudStorage
-Avatar.prototype.setWxUserStorage = function (key, value, noUpdate) {
+pro.setWxUserStorage = function (key, value, noUpdate) {
     if (key === consts.WxStorageKey.STATE) {
         if (this.userState === value)
             return;
@@ -159,25 +172,28 @@ Avatar.prototype.setWxUserStorage = function (key, value, noUpdate) {
 };
 
 // 发信息给客户端
-Avatar.prototype.sendMessage = function (route, msg) {
+pro.sendMessage = function (route, msg, flush=false) {
+    let opts = undefined;
+    if (flush)
+        opts = {flush: true};
     messageService.pushMessageToPlayer({
         uid: this.id,
         sid: this.serverId
-    }, route, msg);
+    }, route, msg, opts);
 };
 
 // 通过avatarID，尝试调用对用avatar的方法
-Avatar.prototype.callAvatar = function (avatarID, funcName, ...args) {
+pro.callAvatar = function (avatarID, funcName, ...args) {
     pomelo.app.rpc.authGlobal.authRemote.callOnlineAvtMethod(null, avatarID, funcName, ...args);
 };
 
 // todo: 简单判断是否在忙，复杂后改用状态机
-Avatar.prototype.isBusy = function () {
+pro.isBusy = function () {
     return this.match.inMatching || this.dungeon.inDungeon || this.raid.inTeamRaid;
 };
 
 // 连接断开
-Avatar.prototype.disconnect = function () {
+pro.disconnect = function () {
     this.logger.info("Avatar disconnect.");
     this.logoutTimer = setTimeout(function () {
         this.destroy();
@@ -186,7 +202,7 @@ Avatar.prototype.disconnect = function () {
 };
 
 // 重新连接
-Avatar.prototype.reconnect = function () {
+pro.reconnect = function () {
     this.logger.info("Avatar reconnect.");
     if (this.logoutTimer) {
         clearTimeout(this.logoutTimer);
@@ -194,14 +210,23 @@ Avatar.prototype.reconnect = function () {
     }
     else {
         // 给客户端提示顶号
-        this.sendMessage('onBeRelay', {});
+        // this.sendMessage('onBeRelay', {}, true);
     }
     // 副本信息更新
     this.dungeon.relayCheckDungeonInfo();
 };
 
+// 踢下线
+pro.kickOffline = function (reason, rightNow) {
+    let sessionService = pomelo.app.get('sessionService');
+    sessionService.kick(this.id, reason, function () {
+        if (rightNow)
+            this.destroy();
+    })
+};
+
 // 销毁
-Avatar.prototype.destroy = function (cb) {
+pro.destroy = function (cb) {
     // todo: 先放这里，后续可能会有其他登出流程
     this.emit("EventLogout", this);
     var self = this;

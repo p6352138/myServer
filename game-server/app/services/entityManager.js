@@ -21,9 +21,9 @@ entityMgr.getEntity = function (entityid) {
 
 entityMgr.delEntity = function (entityid) {
     if (entityid in entities) {
-        var ent = entities[entityid];
-        var classNmae = utils.getObjectClass(ent);
-        entitiesClassify[classNmae].delete(classNmae);
+        let ent = entities[entityid];
+        let className = utils.getObjectClass(ent);
+        entitiesClassify[className].delete(ent);
         delete entities[entityid];
     }
 };
@@ -35,12 +35,18 @@ entityMgr.addEntity = function (entityid, ent, override=true) {
             return;
     }
     entities[entityid] = ent;
-    var classNmae = utils.getObjectClass(ent);
-    if (!entitiesClassify.hasOwnProperty(classNmae))
-        entitiesClassify[classNmae] = new Set();
-    entitiesClassify[classNmae].add(ent);
+    let className = utils.getObjectClass(ent);
+    if (!entitiesClassify.hasOwnProperty(className))
+        entitiesClassify[className] = new Set();
+    entitiesClassify[className].add(ent);
 };
 
 entityMgr.getAllEntities = function () {
     return entities;
+};
+
+entityMgr.getEntitiesByClass = function (className) {
+    if (!entitiesClassify.hasOwnProperty(className))
+        return [];
+    return entitiesClassify[className];
 };

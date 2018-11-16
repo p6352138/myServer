@@ -147,13 +147,15 @@ pro.changeReadyState = function (uid) {
 };
 
 // 开始匹配
-pro.beginTeamMatch = function () {
+pro.beginTeamMatch = function (cb) {
     let matchInfo = {
         matchNum: this.teamMaxNum,
         dgId: this.specialId,  // todo: 历史原因，匹配都用dgId标识好了
     };
     pomelo.app.rpc.match.matchRemote.matchTeam(
-        null, this.teamType, this.id, this.members, matchInfo, null);
+        null, this.teamType, this.id, this.members, matchInfo, function (code) {
+            cb({code: code});
+        });
 };
 
 pro.updateMatchPunishBeginTime = function (uid, pbt) {

@@ -328,8 +328,12 @@ pro.acceptFriend = async function (fromEid, toEid, fromName, cb) {
     if (code === consts.FriendCode.OK) {
         this._addFriendRelation(fromEntry, toEid, toEntry.openid);
         this._addFriendRelation(toEntry, fromEid, fromEntry.openid);
-        this._notifyToEntry(fromEntry, 'onNewFriend', toEid, fromEntry["friends"][toEid], "");
-        this._notifyToEntry(toEntry, 'onNewFriend', fromEid, toEntry["friends"][fromEid], fromName);
+        this._notifyToEntry(
+            fromEntry, 'onNewFriend', toEid,
+            this._getClientInfoFromEntry(toEntry, fromEntry["friends"][toEid].r), "");
+        this._notifyToEntry(
+            toEntry, 'onNewFriend', fromEid,
+            this._getClientInfoFromEntry(fromEntry, toEntry["friends"][fromEid].r), fromName);
         logger.info("%s accept friend %s", fromEid, toEid);
     }
     cb({code: code});

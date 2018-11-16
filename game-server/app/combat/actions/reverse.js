@@ -29,6 +29,7 @@ reverse.entry = function (caster, skill, data, targets) {
         let msg = {
             caster: caster.id,
             sid: sid,
+            type: type,
             damageInfo: damageInfo,
         };
         dungeonEnt.broadcast("onReverse", msg);

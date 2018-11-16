@@ -13,6 +13,7 @@ let persistProperties = {
     gold: 0,  // 元宝
     freeGold: 0,  // 免费元宝
     silver: 0,  // 银两
+    power: 0,  // 体力
 };
 
 module.exports = {

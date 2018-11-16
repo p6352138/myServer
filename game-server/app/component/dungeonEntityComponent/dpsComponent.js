@@ -107,7 +107,7 @@ pro.onHeal = function (healInfo) {
         return;
     let casterID = healInfo.casterID,
         sid = healInfo.sid,
-        heal = healInfo.toHP - healInfo.fromHp;
+        heal = healInfo.toHp - healInfo.fromHp;
     let dohealer = this._getDoHealer(casterID);
     dohealer[sid] = (dohealer[sid] || 0) + heal;
 };

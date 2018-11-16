@@ -174,7 +174,10 @@ pro.activeRecoverMp = function (mp, bForce) {
         this.stopMpRecoverTimer();
         this.endMpRecoverTime = 0;
     }
-    this.updateFightData('onGetMp', { mp: this.mp });
+    this.updateFightData('onGetMp', {
+        uid: this.id,
+        mp: this.mp
+    });
 };
 
 // 所有敌人

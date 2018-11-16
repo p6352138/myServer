@@ -1,16 +1,19 @@
 var reload = require('./app/util/require');
 
 var pomelo = require('pomelo');
+let logger = require('pomelo-logger').getLogger('game', __filename);
+let fs = require('fs'), path = require('path');
+
 var mongodb = _require("./app/mongodb/mongodb");
 var RollStub = _require('./app/services/rollStub');
 var MatchStub = _require('./app/services/matchStub');
+let FriendStub = _require('./app/services/friendStub');
+let TeamStub = _require('./app/services/teamStub');
+let MailStub = _require('./app/services/mailStub');
 var routeUtil = _require('./app/util/routeUtil');
 var dungeonFilter = _require('./app/servers/fight/filter/dungeonFilter');
 let avatarFilter = _require('./app/servers/connector/filter/avatarFilter');
-var consts = require('./app/common/consts');
-var logger = require('pomelo-logger').getLogger('game', __filename);
-let FriendStub = _require('./app/services/friendStub');
-let TeamStub = _require('./app/services/teamStub');
+let consts = _require('./app/common/consts');
 
 /**
  * Init app for client.
@@ -35,12 +38,21 @@ let initAccessToken = function (app) {
 
 // app configuration
 app.configure('production|development', 'connector', function () {
+    app.set('canLogin', true);
     app.before(avatarFilter());
+    let curFilePath = path.resolve(__dirname);
+    app.loadConfig('mangoConfig', app.getBase() + '/config/mangoProject.json');
+    let serverID = app.get('mangoConfig').serverID;
     app.set('connectorConfig',
         {
             connector: pomelo.connectors.hybridconnector,
             heartbeat: 10,
             useDict: true,
+            ssl: {
+                type: 'wss',
+                key: fs.readFileSync(curFilePath + '/keys/2_mango' + serverID + '.haisenyouxi.com.key'),
+                cert: fs.readFileSync(curFilePath + '/keys/1_mango' + serverID + '.haisenyouxi.com_bundle.crt')
+            },
             useProtobuf: true,
             handshake: function (msg, cb) {
                 cb(null, {});
@@ -49,10 +61,19 @@ app.configure('production|development', 'connector', function () {
 });
 
 app.configure('production|development', 'gate', function () {
+    app.set('canLogin', true);
+    let curFilePath = path.resolve(__dirname);
+    app.loadConfig('mangoConfig', app.getBase() + '/config/mangoProject.json');
+    let serverID = app.get('mangoConfig').serverID;
     app.set('connectorConfig',
         {
             connector: pomelo.connectors.hybridconnector,
             useDict: true,
+            ssl: {
+                type: 'wss',
+                key: fs.readFileSync(curFilePath + '/keys/2_mango' + serverID + '.haisenyouxi.com.key'),
+                cert: fs.readFileSync(curFilePath + '/keys/1_mango' + serverID + '.haisenyouxi.com_bundle.crt')
+            },
             useProtobuf: true,
         });
 });
@@ -64,8 +85,10 @@ app.configure('production|development|global_dev|global_pro', 'fight', function 
 app.configure('production|development|global_dev|global_pro', function () {
     app.enable('systemMonitor');
     if (typeof app.registerAdmin === 'function') {
-        var onlineUser = require('./app/modules/onlineUser');
+        let onlineUser = require('./app/modules/onlineUser');
         app.registerAdmin(onlineUser, {app: app});
+        let gameOperation = require('./app/modules/gameOperation');
+        app.registerAdmin(gameOperation, {app: app});
     }
 
     app.loadConfig('mangoConfig', app.getBase() + '/config/mangoProject.json');
@@ -169,6 +192,11 @@ app.configure('production|development|global_dev|global_pro', 'friend', function
 app.configure('production|development|global_dev|global_pro', 'team', function () {
     initDB(app);
     app.set('teamStub', new TeamStub({}), true);
+});
+
+app.configure('production|development|global_dev|global_pro', 'mail', function () {
+    initDB(app);
+    app.set('mailStub', new MailStub({}), true);
 });
 
 let connectToCrossServer = function () {

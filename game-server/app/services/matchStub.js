@@ -345,6 +345,7 @@ pro.getUidInfo = function (uid) {
         sid: ent.sid,
         dgId: ent.dgId,
         name: ent.name,
+        level: ent.level,
         inTeam: inTeam,
         score: score
     }
@@ -472,10 +473,11 @@ pro.unmatch = function (uid) {
         let teamId = memInfo.teamId;
         if (teamId) {
             let teamMems = this.teamInfo[teamId];
-            let queue = this._getQueue(dgId);
+            let queue = this._getQueue(dgId, teamMems.length);
             let idx = -1;
             for (let i = 0; i < queue.length; i++) {
-                if (queue[i].teamId === teamId) {
+                let queueTeamId = this.isPVP ? queue[i].teamId : queue[i];
+                if (queueTeamId === teamId) {
                     idx = i;
                     break;
                 }
@@ -524,12 +526,14 @@ pro._canMatchTeam = function (teamMems) {
 };
 
 // 组队匹配
-pro.matchTeam = function (teamId, teamMembers, matchInfo) {
+pro.matchTeam = function (teamId, teamMembers, matchInfo, cb) {
     if (this.isPVP) {
-        this.matchTeamPVP(teamId, teamMembers, matchInfo);
+        let code = this.matchTeamPVP(teamId, teamMembers, matchInfo);
+        cb(code);
     }
     else {
-        this.matchTeamPVE(teamId, teamMembers, matchInfo);
+        let code = this.matchTeamPVE(teamId, teamMembers, matchInfo);
+        cb(code);
     }
 };
 
@@ -547,6 +551,7 @@ pro.matchTeamPVE = function(teamId, teamMembers, matchInfo) {
     }
     this.teamInfo[teamId] = teamMembers;
     this.actualMatchPVE(teamId, dgId);
+    return consts.Code.OK;
 };
 
 pro.actualMatchPVE = function (teamId, dgId) {
@@ -596,6 +601,7 @@ pro.matchTeamPVP = function (teamId, teamMembers, matchInfo) {
         idx: -1,
     }
     this.actualMatchPVP(info, dgId);
+    return consts.Code.OK;
 };
 
 pro.actualMatchPVP = function (info, dgId) {

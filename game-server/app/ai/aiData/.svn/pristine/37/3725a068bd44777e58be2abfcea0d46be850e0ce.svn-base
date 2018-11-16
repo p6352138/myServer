@@ -1,0 +1,48 @@
+// !!!auto generate!!!
+var bt_consts = _require('../bt_consts');
+var btreeManager = _require('../btreeManager');
+var nodes = _require('../nodes/leafNodes');
+var consts = _require('../../common/consts');
+
+var TREE_NAME = "yuangui";
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n000_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 使用卡牌 
+ * cids：[10301, 10302]
+ * weights: [3, 1]
+ */
+var n001_randomUseCardByID = function(owner) {
+    return nodes.randomUseCardByID(owner, [10301, 10302], [3, 1]);
+};
+
+
+// btree define
+var bt_code = {
+    n_root: {type: bt_consts.NodeType.ROOT, children: ['n0_Selector']},
+    // Selector
+    n0_Selector: {type: bt_consts.NodeType.SELECTOR, children: ['n00_Sequence']},
+    // Sequence
+    n00_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n000_selectHatredTarget', 'n001_randomUseCardByID']},
+    n000_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n000_selectHatredTarget},
+    n001_randomUseCardByID: {type: bt_consts.NodeType.LEAF, func: n001_randomUseCardByID}
+};
+
+
+var res = btreeManager.createTree(TREE_NAME, bt_code);
+if (!res) {
+    throw new Error("load btree failed!!! tree name is " + TREE_NAME);
+};
+
+// 引入子树
+for (var name in bt_code) {
+    if (bt_code[name].type == bt_consts.NodeType.SUBTREE)
+        _require('./' + bt_code[name].subtree);
+};

@@ -5,6 +5,7 @@
  */
 var utils = _require('../../../util/utils')
 let consts = _require('../../../common/consts')
+let logger = require('pomelo-logger').getLogger('game', 'matchRemote');
 
 module.exports = function(app) {
     return new Remote(app);
@@ -23,6 +24,7 @@ pro.match = function (teamType, matchNum, matchInfo, dgId, cb) {
 };
 
 pro.unmatch = function (teamType, matchNum, uid, cb) {
+    logger.debug('unmatch ', teamType, matchNum, uid);
     var matchStub = this.app.matchStubs[teamType][matchNum];
     matchStub.unmatch(uid);
     cb();
@@ -31,8 +33,7 @@ pro.unmatch = function (teamType, matchNum, uid, cb) {
 pro.matchTeam = function (teamType, teamId, teamMembers, matchInfo, cb) {
     let matchNum = matchInfo.matchNum;
     let matchStub = this.app.matchStubs[teamType][matchNum];
-    matchStub.matchTeam(teamId, teamMembers, matchInfo);
-    cb();
+    matchStub.matchTeam(teamId, teamMembers, matchInfo, cb);
 };
 
 pro.matchConfirm = function (teamType, matchNum, uid, cb) {

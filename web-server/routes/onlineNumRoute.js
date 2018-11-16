@@ -12,7 +12,7 @@ var router = function (req, res, next) {
     }
     // 更新在线人数
     serverInfo[req.query.sid] = {
-        "time": new Date().getTime() / 1000,
+        "time": new Date().getTime(),
         "num": req.query.num
     }
     res.end();

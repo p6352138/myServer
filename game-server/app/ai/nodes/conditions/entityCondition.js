@@ -39,7 +39,7 @@ entityCondition.isThewEnoughToUseCard = function (aiComp, cid) {
 // 是否可使用卡牌
 entityCondition.canUseCard = function (aiComp, cid) {
     var cardCtrl = aiComp.entity.cardCtrl;
-    var idx = cardCtrl.inHands.indexOf(cid);
+    var idx = cardCtrl.getInHandCidIdx(cid);
     if (idx === -1)
         return bt_consts.StatusType.FAILURE;
     var tid = aiComp.getRunningData("target");

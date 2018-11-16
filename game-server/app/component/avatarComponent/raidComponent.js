@@ -181,6 +181,7 @@ pro.actualRaidEnterRoom = function (raidID, roomIdx) {
                     openid: ent.openid,
                     sid: pomelo.app.getServerId(),
                     name: ent.name,
+                    level: ent.level,
                     inTeam: 0
                 }
             }, {}, {raidID: raidID, roomIdx: roomIdx}, null);

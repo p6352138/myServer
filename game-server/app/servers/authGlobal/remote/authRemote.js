@@ -17,6 +17,10 @@ pro.checkin = function (openid, uid, sid, cb) {
     this.app.get('rollStub').checkin(openid, uid, sid, cb);
 };
 
+pro.globalCheckin = function(openid, uid, sid, cb) {
+    this.app.get('rollStub').globalCheckin(openid, uid, sid, cb);
+};
+
 // relay角色登录
 pro.relayCheckin = function (openid, uid, sid, cb) {
     this.app.get('rollStub').relayCheckin(openid, uid, sid, cb);
@@ -28,4 +32,8 @@ pro.checkout = function (openid, uid, cb) {
 
 pro.callOnlineAvtMethod = function (...args) {
     this.app.get('rollStub').callOnlineAvtMethod(...args);
+};
+
+pro.callOnlineAvtsMethod = function (...args) {
+    this.app.get('rollStub').callOnlineAvtsMethod(...args);
 };

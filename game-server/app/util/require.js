@@ -93,7 +93,11 @@ function cloneModule(target, source) {
  * @param {String} moduleId 
  */
 function cleanModule(moduleId) {
-  let module = require.cache[moduleId]; 
+  let module = require.cache[moduleId];
+  if (!module) {
+      console.error('reload clean module no moduleId:' + moduleId);
+      return;
+  }
   if (module.parent) {
       module.parent.children.splice(module.parent.children.indexOf(module), 1);
   }

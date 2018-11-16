@@ -1,0 +1,146 @@
+// !!!auto generate!!!
+var bt_consts = require('../bt_consts');
+var btreeManager = require('../btreeManager');
+var nodes = require('../nodes/leafNodes');
+var consts = require('../../common/consts');
+
+var TREE_NAME = "bt_test";
+
+/**
+ * 行为树测试
+ */
+var n00_showText = function(owner) {
+    return nodes.showText("测试用例", 2);
+};
+
+
+/**
+ * 行为树测试
+ */
+var n0100_showText = function(owner) {
+    return nodes.showText("测试用例1", 1);
+};
+
+
+/**
+ * 行为树测试
+ */
+var n0110_showText = function(owner) {
+    return nodes.showText("测试用例2", 2);
+};
+
+
+/**
+ * 行为树测试
+ */
+var n01201_showText = function(owner) {
+    return nodes.showText("测试用例3", 3);
+};
+
+
+/**
+ * 0秒后每5.1秒执行
+ */
+var n020_exeInterval = function(owner) {
+    var timeNow = new Date().getTime();
+    var timeEnd = owner.aiExecutor.getExecuteState("n020_exeInterval");
+    if (!timeEnd) {
+        timeEnd = timeNow + 0 * 1000;
+        owner.aiExecutor.setExecuteState("n020_exeInterval", timeEnd);
+    }
+    if (timeNow >= timeEnd) {
+        owner.aiExecutor.setExecuteState("n020_exeInterval", timeNow + 5.1 * 1000);
+        return bt_consts.StatusType.SUCCESS;
+    }
+    return bt_consts.StatusType.FAILURE;
+};
+
+
+/**
+ * 行为树测试
+ */
+var n021_showText = function(owner) {
+    return nodes.showText("时间间隔测试啦", 0);
+};
+
+
+/**
+ * 行为树测试
+ */
+var n030_showText = function(owner) {
+    return nodes.showText("持续时间测试", 0);
+};
+
+
+/**
+ * 行为树测试
+ */
+var n040_showText = function(owner) {
+    return nodes.showText("总是成功", 0);
+};
+
+
+/**
+ * 行为树测试
+ */
+var n0500_showText = function(owner) {
+    return nodes.showText("总是失败", 0);
+};
+
+
+/**
+ * 行为树测试
+ */
+var n0600_showText = function(owner) {
+    return nodes.showText("总是运行", 0);
+};
+
+
+// btree define
+var bt_code = {
+    n_root: {type: bt_consts.NodeType.ROOT, children: ['n0_Sequence']},
+    // Sequence
+    n0_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n00_showText', 'n01_SelectorProbability', 'n02_Sequence', 'n03_DecoratorTime', 'n04_DecoratorAlwaysSuccess', 'n05_DecoratorNot', 'n06_DecoratorCountLimit']},
+    n00_showText: {type: bt_consts.NodeType.LEAF, func: n00_showText},
+    // Probability
+    n01_SelectorProbability: {type: bt_consts.NodeType.PROBABILITY, children: ['n0100_showText', 'n0110_showText', 'n0120_Sequence'], children_prob: [50, 50, 100]},
+    n0100_showText: {type: bt_consts.NodeType.LEAF, func: n0100_showText},
+    n0110_showText: {type: bt_consts.NodeType.LEAF, func: n0110_showText},
+    // Sequence
+    n0120_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n01200_ReferencedBehavior', 'n01201_showText']},
+    // 挂接子树
+    n01200_ReferencedBehavior: {type: bt_consts.NodeType.SUBTREE, subtree: "bt_subtree_test"},
+    n01201_showText: {type: bt_consts.NodeType.LEAF, func: n01201_showText},
+    // Sequence
+    n02_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n020_exeInterval', 'n021_showText']},
+    n020_exeInterval: {type: bt_consts.NodeType.LEAF, func: n020_exeInterval},
+    n021_showText: {type: bt_consts.NodeType.LEAF, func: n021_showText},
+    // 子节点连续执行3000毫秒
+    n03_DecoratorTime: {type: bt_consts.NodeType.FILTER_EXE_SECONDS, ms: 3000, children: ['n030_showText']},
+    n030_showText: {type: bt_consts.NodeType.LEAF, func: n030_showText},
+    // 总是成功
+    n04_DecoratorAlwaysSuccess: {type: bt_consts.NodeType.FILTER_ALWAYS, alwaysType: bt_consts.StatusType.SUCCESS, children: ['n040_showText']},
+    n040_showText: {type: bt_consts.NodeType.LEAF, func: n040_showText},
+    // 取反
+    n05_DecoratorNot: {type: bt_consts.NodeType.FILTER_REVERSE, children: ['n050_DecoratorAlwaysFailure']},
+    // 总是失败
+    n050_DecoratorAlwaysFailure: {type: bt_consts.NodeType.FILTER_ALWAYS, alwaysType: bt_consts.StatusType.FAILURE, children: ['n0500_showText']},
+    n0500_showText: {type: bt_consts.NodeType.LEAF, func: n0500_showText},
+    // 子节点成功执行3次
+    n06_DecoratorCountLimit: {type: bt_consts.NodeType.FILTER_EXE_TIMES, cnt: 3, onlySuccess: false, children: ['n060_DecoratorAlwaysRunning']},
+    // 总是running
+    n060_DecoratorAlwaysRunning: {type: bt_consts.NodeType.FILTER_ALWAYS, alwaysType: bt_consts.StatusType.RUNNING, children: ['n0600_showText']},
+    n0600_showText: {type: bt_consts.NodeType.LEAF, func: n0600_showText}
+};
+
+
+var res = btreeManager.createTree(TREE_NAME, bt_code);
+if (!res) {
+    throw new Error("load btree failed!!! tree name is " + TREE_NAME);
+};
+
+// 引入子树
+for (var name in bt_code) {
+    if (bt_code[name].type == bt_consts.NodeType.SUBTREE)
+        require('./' + bt_code[name].subtree);
+};

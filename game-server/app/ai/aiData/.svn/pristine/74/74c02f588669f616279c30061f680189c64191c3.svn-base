@@ -1,0 +1,373 @@
+// !!!auto generate!!!
+var bt_consts = require('../bt_consts');
+var btreeManager = require('../btreeManager');
+var nodes = require('../nodes/leafNodes');
+var consts = require('../../common/consts');
+
+var TREE_NAME = "jiaojing";
+
+/**
+ * 属性判断
+ */
+var n0000_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "hpPct", "<=", 0.95);
+};
+
+
+/**
+ * 属性判断
+ */
+var n000100_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "mp", "<", 8);
+};
+
+
+/**
+ * 跳出树，不执行之后的节点。返回BREAK
+ */
+var n000101_quit = function(owner) {
+    return bt_consts.StatusType.BREAK;
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n000110_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10004
+ */
+var n000111_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10004);
+};
+
+
+/**
+ * 使用卡牌 id：10004
+ */
+var n000112_useCard = function(owner) {
+    return nodes.useCard(owner, 10004);
+};
+
+
+/**
+ * 属性判断
+ */
+var n0100_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "hpPct", "<=", 0.9);
+};
+
+
+/**
+ * 属性判断
+ */
+var n010100_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "mp", "<", 8);
+};
+
+
+/**
+ * 跳出树，不执行之后的节点。返回BREAK
+ */
+var n010101_quit = function(owner) {
+    return bt_consts.StatusType.BREAK;
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n010110_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10004
+ */
+var n010111_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10004);
+};
+
+
+/**
+ * 使用卡牌 id：10004
+ */
+var n010112_useCard = function(owner) {
+    return nodes.useCard(owner, 10004);
+};
+
+
+/**
+ * 属性判断
+ */
+var n0200_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "hpPct", "<=", 0.85);
+};
+
+
+/**
+ * 属性判断
+ */
+var n020100_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "mp", "<", 10);
+};
+
+
+/**
+ * 跳出树，不执行之后的节点。返回BREAK
+ */
+var n020101_quit = function(owner) {
+    return bt_consts.StatusType.BREAK;
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n020110_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10005
+ */
+var n020111_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10005);
+};
+
+
+/**
+ * 使用卡牌 id：10005
+ */
+var n020112_useCard = function(owner) {
+    return nodes.useCard(owner, 10005);
+};
+
+
+/**
+ * 属性判断
+ */
+var n030000_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "mp", "<", 5);
+};
+
+
+/**
+ * 跳出树，不执行之后的节点。返回BREAK
+ */
+var n030001_quit = function(owner) {
+    return bt_consts.StatusType.BREAK;
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n030010_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10003
+ */
+var n030011_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10003);
+};
+
+
+/**
+ * 使用卡牌 id：10003
+ */
+var n030012_useCard = function(owner) {
+    return nodes.useCard(owner, 10003);
+};
+
+
+/**
+ * 属性判断
+ */
+var n031000_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "mp", "<", 3);
+};
+
+
+/**
+ * 跳出树，不执行之后的节点。返回BREAK
+ */
+var n031001_quit = function(owner) {
+    return bt_consts.StatusType.BREAK;
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n031010_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10002
+ */
+var n031011_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10002);
+};
+
+
+/**
+ * 使用卡牌 id：10002
+ */
+var n031012_useCard = function(owner) {
+    return nodes.useCard(owner, 10002);
+};
+
+
+/**
+ * 属性判断
+ */
+var n032000_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "mp", "<", 1);
+};
+
+
+/**
+ * 跳出树，不执行之后的节点。返回BREAK
+ */
+var n032001_quit = function(owner) {
+    return bt_consts.StatusType.BREAK;
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n032010_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10001
+ */
+var n032011_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10001);
+};
+
+
+/**
+ * 使用卡牌 id：10001
+ */
+var n032012_useCard = function(owner) {
+    return nodes.useCard(owner, 10001);
+};
+
+
+// btree define
+var bt_code = {
+    n_root: {type: bt_consts.NodeType.ROOT, children: ['n0_Selector']},
+    // Selector
+    n0_Selector: {type: bt_consts.NodeType.SELECTOR, children: ['n00_DecoratorCountLimit', 'n01_DecoratorCountLimit', 'n02_DecoratorCountLimit', 'n03_SelectorProbability']},
+    // 子节点成功执行1次
+    n00_DecoratorCountLimit: {type: bt_consts.NodeType.FILTER_EXE_TIMES, cnt: 1, onlySuccess: true, children: ['n000_Sequence']},
+    // Sequence
+    n000_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n0000_checkAttributes', 'n0001_Selector']},
+    n0000_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n0000_checkAttributes},
+    // Selector
+    n0001_Selector: {type: bt_consts.NodeType.SELECTOR, children: ['n00010_Sequence', 'n00011_Sequence']},
+    // Sequence
+    n00010_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n000100_checkAttributes', 'n000101_quit']},
+    n000100_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n000100_checkAttributes},
+    n000101_quit: {type: bt_consts.NodeType.LEAF, func: n000101_quit},
+    // Sequence
+    n00011_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n000110_selectHatredTarget', 'n000111_canUseCard', 'n000112_useCard']},
+    n000110_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n000110_selectHatredTarget},
+    n000111_canUseCard: {type: bt_consts.NodeType.LEAF, func: n000111_canUseCard},
+    n000112_useCard: {type: bt_consts.NodeType.LEAF, func: n000112_useCard},
+    // 子节点成功执行1次
+    n01_DecoratorCountLimit: {type: bt_consts.NodeType.FILTER_EXE_TIMES, cnt: 1, onlySuccess: true, children: ['n010_Sequence']},
+    // Sequence
+    n010_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n0100_checkAttributes', 'n0101_Selector']},
+    n0100_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n0100_checkAttributes},
+    // Selector
+    n0101_Selector: {type: bt_consts.NodeType.SELECTOR, children: ['n01010_Sequence', 'n01011_Sequence']},
+    // Sequence
+    n01010_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n010100_checkAttributes', 'n010101_quit']},
+    n010100_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n010100_checkAttributes},
+    n010101_quit: {type: bt_consts.NodeType.LEAF, func: n010101_quit},
+    // Sequence
+    n01011_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n010110_selectHatredTarget', 'n010111_canUseCard', 'n010112_useCard']},
+    n010110_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n010110_selectHatredTarget},
+    n010111_canUseCard: {type: bt_consts.NodeType.LEAF, func: n010111_canUseCard},
+    n010112_useCard: {type: bt_consts.NodeType.LEAF, func: n010112_useCard},
+    // 子节点成功执行1次
+    n02_DecoratorCountLimit: {type: bt_consts.NodeType.FILTER_EXE_TIMES, cnt: 1, onlySuccess: true, children: ['n020_Sequence']},
+    // Sequence
+    n020_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n0200_checkAttributes', 'n0201_Selector']},
+    n0200_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n0200_checkAttributes},
+    // Selector
+    n0201_Selector: {type: bt_consts.NodeType.SELECTOR, children: ['n02010_Sequence', 'n02011_Sequence']},
+    // Sequence
+    n02010_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n020100_checkAttributes', 'n020101_quit']},
+    n020100_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n020100_checkAttributes},
+    n020101_quit: {type: bt_consts.NodeType.LEAF, func: n020101_quit},
+    // Sequence
+    n02011_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n020110_selectHatredTarget', 'n020111_canUseCard', 'n020112_useCard']},
+    n020110_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n020110_selectHatredTarget},
+    n020111_canUseCard: {type: bt_consts.NodeType.LEAF, func: n020111_canUseCard},
+    n020112_useCard: {type: bt_consts.NodeType.LEAF, func: n020112_useCard},
+    // Probability
+    n03_SelectorProbability: {type: bt_consts.NodeType.PROBABILITY, children: ['n0300_Selector', 'n0310_Selector', 'n0320_Selector'], children_prob: [1, 1, 1]},
+    // Selector
+    n0300_Selector: {type: bt_consts.NodeType.SELECTOR, children: ['n03000_Sequence', 'n03001_Sequence']},
+    // Sequence
+    n03000_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n030000_checkAttributes', 'n030001_quit']},
+    n030000_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n030000_checkAttributes},
+    n030001_quit: {type: bt_consts.NodeType.LEAF, func: n030001_quit},
+    // Sequence
+    n03001_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n030010_selectHatredTarget', 'n030011_canUseCard', 'n030012_useCard']},
+    n030010_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n030010_selectHatredTarget},
+    n030011_canUseCard: {type: bt_consts.NodeType.LEAF, func: n030011_canUseCard},
+    n030012_useCard: {type: bt_consts.NodeType.LEAF, func: n030012_useCard},
+    // Selector
+    n0310_Selector: {type: bt_consts.NodeType.SELECTOR, children: ['n03100_Sequence', 'n03101_Sequence']},
+    // Sequence
+    n03100_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n031000_checkAttributes', 'n031001_quit']},
+    n031000_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n031000_checkAttributes},
+    n031001_quit: {type: bt_consts.NodeType.LEAF, func: n031001_quit},
+    // Sequence
+    n03101_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n031010_selectHatredTarget', 'n031011_canUseCard', 'n031012_useCard']},
+    n031010_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n031010_selectHatredTarget},
+    n031011_canUseCard: {type: bt_consts.NodeType.LEAF, func: n031011_canUseCard},
+    n031012_useCard: {type: bt_consts.NodeType.LEAF, func: n031012_useCard},
+    // Selector
+    n0320_Selector: {type: bt_consts.NodeType.SELECTOR, children: ['n03200_Sequence', 'n03201_Sequence']},
+    // Sequence
+    n03200_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n032000_checkAttributes', 'n032001_quit']},
+    n032000_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n032000_checkAttributes},
+    n032001_quit: {type: bt_consts.NodeType.LEAF, func: n032001_quit},
+    // Sequence
+    n03201_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n032010_selectHatredTarget', 'n032011_canUseCard', 'n032012_useCard']},
+    n032010_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n032010_selectHatredTarget},
+    n032011_canUseCard: {type: bt_consts.NodeType.LEAF, func: n032011_canUseCard},
+    n032012_useCard: {type: bt_consts.NodeType.LEAF, func: n032012_useCard}
+};
+
+
+var res = btreeManager.createTree(TREE_NAME, bt_code);
+if (!res) {
+    throw new Error("load btree failed!!! tree name is " + TREE_NAME);
+};
+
+// 引入子树
+for (var name in bt_code) {
+    if (bt_code[name].type == bt_consts.NodeType.SUBTREE)
+        require('./' + bt_code[name].subtree);
+};

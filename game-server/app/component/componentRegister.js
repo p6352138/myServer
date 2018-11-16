@@ -14,6 +14,8 @@ let TeamComponent = _require('./avatarComponent/teamComponent');
 let LadderComponent = _require('./avatarComponent/ladderComponent');
 let RaidComponent = _require('./avatarComponent/raidComponent');
 let AvatarPropertyCtrl = _require('./avatarComponent/avatarPropertyCtrl');
+let BagComponent = _require('./avatarComponent/bagComponent');
+let MailComponent = _require('./avatarComponent/mailComponent');
 
 var AIBehavior = _require('./combatUnitComponent/aiBehavior');
 var BuffCtrl = _require('./combatUnitComponent/buffCtrl');
@@ -39,6 +41,8 @@ var componentClass = {
     ladder: LadderComponent,
     raid: RaidComponent,
     avatarProp: AvatarPropertyCtrl,
+    bag: BagComponent,
+    mail: MailComponent,
 
     AI: AIBehavior,
     buffCtrl: BuffCtrl,

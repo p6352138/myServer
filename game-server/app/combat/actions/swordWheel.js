@@ -35,6 +35,7 @@ swordWheel.entry = function (caster, skill, data, targets) {
     let msg = {
         caster: caster.id,
         sid: sid,
+        type: type,
         damageInfo: damageInfo,
         summons: dungeonEnt.summons.getSummonsByType(groupId, true, type)
     };

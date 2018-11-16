@@ -18,19 +18,22 @@ var Remote = function(app) {
 
 var pro = Remote.prototype;
 
-// 被顶号（废弃，暂时保留）
-pro.onRelayReady = function (avtID, cb) {
-    var avatar = entityManager.getEntity(avtID);
-    if (!avatar) {
-        logger.error('be relay with no avt[%s]', avtID);
-        cb();
-        return;
+// 全服广播入口
+pro.onGlobalMessage = function (route, msg, cb) {
+    let avatars = entityManager.getEntitiesByClass('Avatar');
+    let funcPres = route.split('.');
+    // todo: 考虑分段处理
+    for (let avatar of avatars) {
+        let func = avatar, env = avatar, len = funcPres.length;
+        for (let i = 0; i < len; i++) {
+            func = func[funcPres[i]];
+            if (i !== len - 1) {
+                env = func;
+            }
+        }
+        func.call(env, msg);
     }
-    this.app.get('sessionService').kick(avtID, "relay");
-    avatar.destroy(function () {
-        cb();
-        logger.info("%s be relay.", avtID);
-    });
+    cb();
 };
 
 // 匹配完成，进入选英雄
@@ -276,5 +279,13 @@ pro.onTeamRaidPass = function (avtID, cb) {
 pro.onTeamRaidFail = function (avtID, cb) {
     let avatar = entityManager.getEntity(avtID);
     avatar.raid.onTeamRaidFail();
+    cb();
+};
+
+/* *************************  mail begin  ************************* */
+
+pro.onNewMailNotify = function (avtID, mailGuid, mailInfo, cb) {
+    let avatar = entityManager.getEntity(avtID);
+    avatar.mail.onNewMailNotify(mailGuid, mailInfo);
     cb();
 };

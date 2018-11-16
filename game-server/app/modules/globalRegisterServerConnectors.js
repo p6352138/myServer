@@ -6,7 +6,7 @@
 var countDownLatch = require('../../node_modules/pomelo/lib/util/countDownLatch');
 var utils = require('../../node_modules/pomelo/lib/util/utils');
 var Constants = require('../../node_modules/pomelo/lib/util/constants');
-var logger = _require('pomelo-logger').getLogger('game', __filename);
+var logger = require('pomelo-logger').getLogger('game', __filename);
 
 module.exports = function (opts) {
     return new Module(opts);

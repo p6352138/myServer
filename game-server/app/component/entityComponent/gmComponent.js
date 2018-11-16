@@ -8,6 +8,7 @@ var util = _require('util');
 var consts = _require('../../common/consts');
 var pomelo = require('pomelo');
 let dispatcher = _require('../../util/dispatcher');
+let mailManager = require('../../manager/mailManager');
 
 var GMComponent = function (entity) {
     Component.call(this, entity);
@@ -19,7 +20,7 @@ module.exports = GMComponent;
 var pro = GMComponent.prototype;
 
 pro.init = function (opts) {
-    this.localCmd = new Set(['e', 'quickFight', 'gold']);
+    this.localCmd = new Set(['e', 'quickFight', 'gold', 'i', 'lv', 'mail', 'gmmail']);
     this.dungeonCmd = new Set(['kill', 'hp', 'mp', 'card', 'monster']);
 };
 
@@ -38,6 +39,34 @@ pro.handleGMCommand = function (cmd, params) {
             dgCtrl.fightServer, dgCtrl.dgEntId, cmd, this.entity.id, params, null);
         return;
     }
+};
+
+pro.gmmail = function (uid, title, desc, reward) {
+    if (uid === 'self')
+        uid = this.entity.id;
+    if (!reward)
+        reward = {};
+    else
+        reward = eval('('+reward+')');
+    mailManager.addGMMailToPlayers(uid, title, desc, reward);
+};
+
+pro.mail = function (uid, mailID, kwargs) {
+    if (uid === 'self')
+        uid = this.entity.id;
+    mailID = parseInt(mailID);
+    kwargs = eval('('+kwargs+')');
+    mailManager.addMailToPlayers(uid, mailID, kwargs)
+};
+
+pro.lv = function (level) {
+    level = parseInt(level);
+    this.entity.avatarProp._setAvatarProp('level', level, true);
+};
+
+pro.i = function (itemID, cnt) {
+    itemID = parseInt(itemID), cnt = parseInt(cnt)
+    this.entity.bag.addItem(itemID, cnt);
 };
 
 pro.gold = function (val) {

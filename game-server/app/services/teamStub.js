@@ -7,7 +7,7 @@ let logger = require('pomelo-logger').getLogger('game', 'teamStub');
 let Team = _require('../entity/team');
 let consts = _require('../public/consts');
 let utils = _require('../util/utils');
-var pomelo = require('pomelo');
+let pomelo = require('pomelo');
 
 let TeamStub = function (opts) {
     opts = opts || {};
@@ -21,6 +21,7 @@ let pro = TeamStub.prototype;
 pro.createEmptyTeam = function (teamType, specialId) {
     let team = new Team(this, teamType, specialId);
     this.teams[team.id] = team;
+    logger.info('create Team id:%s teamType:%s, specialId:%s', team.id, teamType, specialId);
     return team;
 };
 
@@ -147,8 +148,7 @@ pro.beginTeamMatch = function (uid, cb) {
         return cb({code: consts.TeamCode.NOT_CAPTAIN});
     if (!team.canMatch())
         return cb({code: consts.TeamCode.NOT_READY});
-    team.beginTeamMatch();
-    cb({code: consts.TeamCode.OK});
+    team.beginTeamMatch(cb);
 };
 
 // 更新匹配惩罚时间

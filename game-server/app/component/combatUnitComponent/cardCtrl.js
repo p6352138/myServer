@@ -9,6 +9,7 @@ var consts = _require('../../common/consts');
 var fightHelper = _require('../../helper/fightHelper');
 var cardTpl = _require('../../data/Card');
 var constTpl = _require('../../data/Constant');
+let CardEntity = _require('../../entity/cardEntity');
 
 var CardCtrl = function (entity) {
     Component.call(this, entity);
@@ -24,7 +25,6 @@ pro.init = function (opts) {
     this.inHands = [];  // 手牌
     this.discards = [];  // 弃牌堆
     this.exhausts = [];  // 消耗牌堆
-    this.cardsLv = {};  // 卡牌等级
 
     this.drawTime = opts.drawTime || constTpl.BaseCardGain * 1000;  // 抽牌时间
     this.drawBlock = false;  // 抽牌阻塞，手牌满了
@@ -40,15 +40,16 @@ pro.initCards = function (cards, initialNum) {
     this.cards = [];  // 抽牌堆
     this.inHands = [];  // 手牌
     for (var i = cards.length - 1; i >= 0; i--) {
-        var cid = newCards[i];
-        var cardAttri = cardTpl[cid].CardAttributes;
+        let cid = newCards[i];
+        let cardEnt = new CardEntity(cid);  // 卡牌对象
+        var cardAttri = cardEnt.config.CardAttributes;
         // 固有的
         if (initialNum > 0 && cardAttri && cardAttri.indexOf(consts.CardAttri.INHERENT_CARD) !== -1) {
-            this.inHands.push(cid);
+            this.inHands.push(cardEnt);
             initialNum --;
         }
         else {
-            this.cards.push(cid);
+            this.cards.push(cardEnt);
         }
     }
     this.cards.reverse();
@@ -60,15 +61,12 @@ pro.initCards = function (cards, initialNum) {
     this.exhausts = [];  // 消耗牌堆
 };
 
-pro.getCardsLvInfo = function () {
-    var result = [];
-    for (var cardID in this.cardsLv) {
-        result.push({
-            cid: cardID,
-            lv: this.cardsLv[cardID]
-        })
+pro.getInHandsInfo = function () {
+    let res = [];
+    for (let cardEnt of this.inHands) {
+        res.push(cardEnt.getClientInfo());
     }
-    return result;
+    return res;
 };
 
 pro.stopDrawTimer = function () {
@@ -92,7 +90,6 @@ pro.normalDrawCard = function (num) {
 
 // 抽牌
 pro._draw = function (isDirect) {
-    this.entity.logger.debug("draw card inHands[%s], discards[%s]", this.inHands.toString(), this.discards.toString())
     if (this.inHands.length >= consts.Fight.CARDS_IN_HAND_MAX) {
         this.drawBlock = true;
         return;
@@ -105,7 +102,7 @@ pro._draw = function (isDirect) {
         this._reshuffle();
         deltaData.discardsNum = this.discards.length;
     }
-    deltaData.inHands = this.inHands;
+    deltaData.inHands = this.getInHandsInfo();
     deltaData.cardsNum = this.cards.length;
     if (!isDirect)  // 直接抽牌不走计时逻辑
         this.startDrawTimer();
@@ -152,10 +149,10 @@ pro.checkCanUseCard = function (idx, cid, tid) {
     if (this.entity.state.isDead())
         return consts.FightCode.ALREADY_DEAD;
     var card = this.inHands[idx];
-    if (!card  || card != cid)
+    if (!card  || card.cid != cid)
         return consts.FightCode.PLAY_CARD_INFO_ERR;
-    var cardConf = cardTpl[cid];
-    var needMp = cardConf.CastMP;
+    var cardConf = card.config;
+    var needMp = card.mp;
     if (this.entity.mp < needMp)
         return consts.FightCode.MP_NOT_ENOUGH;
     var needThew = cardConf.CastThew;
@@ -176,8 +173,8 @@ pro.checkCanUseCard = function (idx, cid, tid) {
 // 出牌结算
 pro.actualUseCard = function (idx, cid, tid) {
     var card = this.inHands[idx];
-    var cardConf = cardTpl[cid];
-    var needMp = cardConf.CastMP;
+    var cardConf = card.config;
+    var needMp = card.mp;
     var needThew = cardConf.CastThew;
     this.entity.mp -= needMp;
     this.entity.thew -= needThew;
@@ -185,7 +182,7 @@ pro.actualUseCard = function (idx, cid, tid) {
     var deltaData = {
         mp: this.entity.mp,
         thew: this.entity.thew,
-        inHands: this.inHands
+        inHands: this.getInHandsInfo(),
     };
     if (cardConf.CardAttributes.indexOf(consts.CardAttri.PERMANENT_CONSUME_CARD) !== -1) {
         // 永久消耗，不处理
@@ -206,7 +203,7 @@ pro.actualUseCard = function (idx, cid, tid) {
     }
     var broadcastData = {
         uid: this.entity.id,
-        cid: cid,
+        cid: cid,  // todo: 需要同步更多信息？
         tid: tid,
         inHandsNum: this.inHands.length
     }
@@ -216,17 +213,26 @@ pro.actualUseCard = function (idx, cid, tid) {
         this.drawBlock = false;
         this._draw();
     }
-    this.entity.logger.debug("use card cid[%s] left:", cid, this.inHands);
+    // this.entity.logger.debug("use card cid[%s] left:", cid, this.inHands);
     // 使用技能
     var skillID = cardConf.SkillID;
-    this.entity.skillCtrl.useSkill(skillID, this.cardsLv[cid] || 1, tid);
+    this.entity.skillCtrl.useSkill(skillID, card.lv, tid);
 };
 
 pro.hasCardInHand = function (cid) {
-    if (this.inHands.indexOf(cid) !== -1)
-        return true;
-    else
-        return false;
+    for (let card of this.inHands) {
+        if (card.cid === cid)
+            return true;
+    }
+    return false;
+};
+
+pro.getInHandCidIdx = function (cid) {
+    for (let i = 0; i < this.inHands.length; i++) {
+        if (this.inHands[i].cid === cid)
+            return i;
+    }
+    return -1;
 };
 
 pro.isFull = function () {
@@ -244,8 +250,8 @@ pro._getPileByType = function (pileType) {
 
 pro._getValidCardsFromPile = function (cardType, cardQuality, cardAttributes, piletype) {
     var validCards = [];
-    var isValid = function (cid) {
-        var cardData = cardTpl[cid];
+    var isValid = function (card) {
+        var cardData = card.config;
         if (cardType && cardType !== cardData.CardType)
             return false;
         if (cardQuality && cardQuality !== cardData.CardQuality)
@@ -335,7 +341,7 @@ pro.specificDrawCard = function (num, cardType, cardQuality, cardAttributes, pil
     // to client
     this.entity.updateFightData('onSpecificDrawCard', {
         got: clientData,
-        inHands: this.inHands,
+        inHands: this.getInHandsInfo(),
     });
     // broadcast
     this.entity.broadcastToOthers('onSpecificDrawCardNotify', {
@@ -352,12 +358,12 @@ pro.createCardsInHand = function (cardID, num) {
     var maxNum = consts.Fight.CARDS_IN_HAND_MAX - this.inHands.length;
     num = Math.min(maxNum, num);
     for (var i = 0; i < num; i++) {
-        this.inHands.push(cardID);
+        this.inHands.push(new CardEntity(cardID));
     }
     // to client
     this.entity.updateFightData('onCreateCard', {
         num: num,
-        inHands: this.inHands,
+        inHands: this.getInHandsInfo(),
     });
     // broadcast
     this.entity.broadcastToOthers('onCreateCardNotify', {
@@ -374,7 +380,7 @@ pro.dropCard = function (num, cardType, cardQuality, cardAttributes, piletype) {
     var pile = this.inHands;
     for (var i in pile) {
         var card = pile[i];
-        var cardData = cardTpl[card];
+        var cardData = card.config;
         if (cardType && cardType !== cardData.CardType)
             continue;
         if (cardQuality && cardQuality !== cardData.CardQuality)
@@ -426,7 +432,7 @@ pro.dropCard = function (num, cardType, cardQuality, cardAttributes, piletype) {
     // to client
     this.entity.updateFightData('onDropCard', {
         dropInfo: cards,
-        inHands: this.inHands,
+        inHands: this.getInHandsInfo(),
     });
     // broadcast
     this.entity.broadcastToOthers('onDropCardNotify', {

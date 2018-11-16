@@ -93,6 +93,7 @@ pro._getMatchInfo = function () {
         id: this.entity.id,
         openid: this.entity.openid,
         name: this.entity.name,
+        level: this.entity.level,
         sid: pomelo.app.getServerId(),
         sls: this.entity.ladder.singleLadderScore,
         tls: this.entity.ladder.teamLadderScore,

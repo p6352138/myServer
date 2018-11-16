@@ -7,6 +7,7 @@ let Component = _require('../component');
 let util = require('util');
 let avatarProperty = _require('./avatarProperty');
 let consts = _require('../../common/consts');
+let constTpl = require('../../data/Constant');
 
 let AvatarPropertyCtrl = function (entity) {
     Component.call(this, entity);
@@ -107,6 +108,26 @@ pro.spendGold = function (cost, reason, bNotify=true) {
         freeCost, cost, this.entity.freeGold, this.entity.gold, reason);
 };
 
+pro.enoughPower = function (cost) {
+    if (cost <= 0)
+        return false;
+    return this.entity.power >= cost;
+};
+
+pro.givePower = function (val, reason = 'default', bNotify=true) {
+    if (val <= 0)
+        throw new Error('give power: ' + val);
+    this._setAvatarProp('power', this.entity.power + val, bNotify);
+    this.entity.logger.info('get power: %s, now: %s, reason: %s', val, this.entity.power, reason);
+};
+
+pro.spendPower = function (cost, reason, bNotify=true) {
+    if (!this.enoughPower(cost))
+        throw new Error('spend power not enough need: ' + cost + ' own: ' + this.entity.power);
+    this._setAvatarProp('power', this.entity.power - cost, bNotify);
+    this.entity.logger.info('spend power: %s, now: %s, reason: %s', cost, this.entity.power, reason);
+};
+
 pro._setAvatarProp = function (key, value, bNotify) {
     this.entity[key] = value;
     this._dirtyProp[key] = value;
@@ -122,6 +143,16 @@ pro.exchangeSilver = function (gold, next) {
         return next(null, {code: consts.Code.FAIL});
     let reason = consts.SpendReason.EXCHANGE_SILVER;
     this.spendGold(gold, reason, false);
-    this.giveSilver(gold * 100, reason, true);
+    this.giveSilver(gold * constTpl.SilverExchange, reason, true);
+    next(null, {code: consts.Code.OK});
+};
+
+// 兑换体力
+pro.exchangePower = function (gold, next) {
+    if (!this.enoughGold(gold))
+        return next(null, {code: consts.Code.FAIL});
+    let reason = consts.SpendReason.EXCHANGE_POWER;
+    this.spendGold(gold, reason, false);
+    this.givePower(gold * constTpl.PowerExchange, reason, true);
     next(null, {code: consts.Code.OK});
 };

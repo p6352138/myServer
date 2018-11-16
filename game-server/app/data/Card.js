@@ -58,7 +58,7 @@ module.exports = {
 		HeroID: 1000,
 		SkillID: 1001,
 		Treasure: 0,
-		CastMP: 0,
+		CastMP: 4,
 		CastThew: 0,
 		CardType: 1,
 		CardQuality: 2,
@@ -70,11 +70,11 @@ module.exports = {
 		HeroID: 1000,
 		SkillID: 1002,
 		Treasure: 0,
-		CastMP: 1,
+		CastMP: 3,
 		CastThew: 0,
 		CardType: 1,
-		CardQuality: 2,
-		CardAttributes: [2]
+		CardQuality: 1,
+		CardAttributes: [1]
 	},
 	1003: {
 		ID: 1003,
@@ -82,7 +82,7 @@ module.exports = {
 		HeroID: 1000,
 		SkillID: 1003,
 		Treasure: 0,
-		CastMP: 2,
+		CastMP: 5,
 		CastThew: 0,
 		CardType: 1,
 		CardQuality: 1,
@@ -94,11 +94,11 @@ module.exports = {
 		HeroID: 1000,
 		SkillID: 1004,
 		Treasure: 0,
-		CastMP: 2,
+		CastMP: 4,
 		CastThew: 0,
-		CardType: 3,
-		CardQuality: 3,
-		CardAttributes: [2,4]
+		CardType: 1,
+		CardQuality: 2,
+		CardAttributes: [1]
 	},
 	1005: {
 		ID: 1005,
@@ -118,7 +118,7 @@ module.exports = {
 		HeroID: 1000,
 		SkillID: 1006,
 		Treasure: 0,
-		CastMP: 2,
+		CastMP: 0,
 		CastThew: 0,
 		CardType: 2,
 		CardQuality: 3,
@@ -132,17 +132,17 @@ module.exports = {
 		Treasure: 0,
 		CastMP: 3,
 		CastThew: 0,
-		CardType: 2,
-		CardQuality: 1,
-		CardAttributes: [1]
+		CardType: 3,
+		CardQuality: 3,
+		CardAttributes: [2]
 	},
 	1008: {
 		ID: 1008,
-		UseLimit: {},
+		UseLimit: {wSword:5},
 		HeroID: 1000,
 		SkillID: 1008,
 		Treasure: 0,
-		CastMP: 2,
+		CastMP: 0,
 		CastThew: 0,
 		CardType: 2,
 		CardQuality: 3,
@@ -156,8 +156,8 @@ module.exports = {
 		Treasure: 0,
 		CastMP: 6,
 		CastThew: 0,
-		CardType: 1,
-		CardQuality: 1,
+		CardType: 2,
+		CardQuality: 3,
 		CardAttributes: [1]
 	},
 	1010: {
@@ -168,135 +168,15 @@ module.exports = {
 		Treasure: 0,
 		CastMP: 5,
 		CastThew: 0,
-		CardType: 1,
-		CardQuality: 4,
-		CardAttributes: [1]
-	},
-	1011: {
-		ID: 1011,
-		UseLimit: {},
-		HeroID: 1000,
-		SkillID: 1011,
-		Treasure: 0,
-		CastMP: 4,
-		CastThew: 0,
-		CardType: 1,
-		CardQuality: 2,
-		CardAttributes: [1]
-	},
-	1012: {
-		ID: 1012,
-		UseLimit: {},
-		HeroID: 1000,
-		SkillID: 1012,
-		Treasure: 0,
-		CastMP: 3,
-		CastThew: 0,
-		CardType: 1,
-		CardQuality: 1,
-		CardAttributes: [1]
-	},
-	1013: {
-		ID: 1013,
-		UseLimit: {},
-		HeroID: 1000,
-		SkillID: 1013,
-		Treasure: 0,
-		CastMP: 5,
-		CastThew: 0,
-		CardType: 1,
-		CardQuality: 1,
-		CardAttributes: [1]
-	},
-	1014: {
-		ID: 1014,
-		UseLimit: {},
-		HeroID: 1000,
-		SkillID: 1014,
-		Treasure: 0,
-		CastMP: 4,
-		CastThew: 0,
-		CardType: 1,
-		CardQuality: 2,
-		CardAttributes: [1]
-	},
-	1015: {
-		ID: 1015,
-		UseLimit: {},
-		HeroID: 1000,
-		SkillID: 1015,
-		Treasure: 0,
-		CastMP: 4,
-		CastThew: 0,
-		CardType: 3,
-		CardQuality: 4,
-		CardAttributes: [2]
-	},
-	1016: {
-		ID: 1016,
-		UseLimit: {},
-		HeroID: 1000,
-		SkillID: 1016,
-		Treasure: 0,
-		CastMP: 0,
-		CastThew: 0,
-		CardType: 2,
-		CardQuality: 3,
-		CardAttributes: [2]
-	},
-	1017: {
-		ID: 1017,
-		UseLimit: {},
-		HeroID: 1000,
-		SkillID: 1017,
-		Treasure: 0,
-		CastMP: 3,
-		CastThew: 0,
-		CardType: 3,
-		CardQuality: 3,
-		CardAttributes: [2]
-	},
-	1018: {
-		ID: 1018,
-		UseLimit: {wSword:5},
-		HeroID: 1000,
-		SkillID: 1018,
-		Treasure: 0,
-		CastMP: 0,
-		CastThew: 0,
-		CardType: 2,
-		CardQuality: 3,
-		CardAttributes: [1]
-	},
-	1019: {
-		ID: 1019,
-		UseLimit: {},
-		HeroID: 1000,
-		SkillID: 1019,
-		Treasure: 0,
-		CastMP: 6,
-		CastThew: 0,
-		CardType: 2,
-		CardQuality: 3,
-		CardAttributes: [1]
-	},
-	1020: {
-		ID: 1020,
-		UseLimit: {},
-		HeroID: 1000,
-		SkillID: 1020,
-		Treasure: 0,
-		CastMP: 5,
-		CastThew: 0,
 		CardType: 2,
 		CardQuality: 4,
 		CardAttributes: [1]
 	},
-	2001: {
-		ID: 2001,
+	4001: {
+		ID: 4001,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2001,
+		SkillID: 4001,
 		Treasure: 0,
 		CastMP: 2,
 		CastThew: 0,
@@ -304,11 +184,11 @@ module.exports = {
 		CardQuality: 1,
 		CardAttributes: [1]
 	},
-	2002: {
-		ID: 2002,
+	4002: {
+		ID: 4002,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2002,
+		SkillID: 4002,
 		Treasure: 0,
 		CastMP: 5,
 		CastThew: 0,
@@ -316,11 +196,11 @@ module.exports = {
 		CardQuality: 2,
 		CardAttributes: [1]
 	},
-	2003: {
-		ID: 2003,
+	4003: {
+		ID: 4003,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2003,
+		SkillID: 4003,
 		Treasure: 0,
 		CastMP: 2,
 		CastThew: 0,
@@ -328,11 +208,11 @@ module.exports = {
 		CardQuality: 2,
 		CardAttributes: [1]
 	},
-	2004: {
-		ID: 2004,
+	4004: {
+		ID: 4004,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2004,
+		SkillID: 4004,
 		Treasure: 0,
 		CastMP: 4,
 		CastThew: 0,
@@ -340,11 +220,11 @@ module.exports = {
 		CardQuality: 4,
 		CardAttributes: [2]
 	},
-	2005: {
-		ID: 2005,
+	4005: {
+		ID: 4005,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2005,
+		SkillID: 4005,
 		Treasure: 0,
 		CastMP: 3,
 		CastThew: 0,
@@ -352,11 +232,11 @@ module.exports = {
 		CardQuality: 3,
 		CardAttributes: [2]
 	},
-	2006: {
-		ID: 2006,
+	4006: {
+		ID: 4006,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2006,
+		SkillID: 4006,
 		Treasure: 0,
 		CastMP: 2,
 		CastThew: 0,
@@ -364,11 +244,11 @@ module.exports = {
 		CardQuality: 1,
 		CardAttributes: [1]
 	},
-	2007: {
-		ID: 2007,
+	4007: {
+		ID: 4007,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2007,
+		SkillID: 4007,
 		Treasure: 0,
 		CastMP: 3,
 		CastThew: 0,
@@ -376,11 +256,11 @@ module.exports = {
 		CardQuality: 3,
 		CardAttributes: [2]
 	},
-	2008: {
-		ID: 2008,
+	4008: {
+		ID: 4008,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2008,
+		SkillID: 4008,
 		Treasure: 0,
 		CastMP: 2,
 		CastThew: 0,
@@ -388,11 +268,11 @@ module.exports = {
 		CardQuality: 3,
 		CardAttributes: [2,4]
 	},
-	2009: {
-		ID: 2009,
+	4009: {
+		ID: 4009,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2009,
+		SkillID: 4009,
 		Treasure: 0,
 		CastMP: 2,
 		CastThew: 0,
@@ -400,11 +280,11 @@ module.exports = {
 		CardQuality: 1,
 		CardAttributes: [1]
 	},
-	2010: {
-		ID: 2010,
+	4010: {
+		ID: 4010,
 		UseLimit: {},
 		HeroID: 2000,
-		SkillID: 2010,
+		SkillID: 4010,
 		Treasure: 0,
 		CastMP: 5,
 		CastThew: 0,
@@ -412,11 +292,11 @@ module.exports = {
 		CardQuality: 4,
 		CardAttributes: [1]
 	},
-	2011: {
-		ID: 2011,
+	4011: {
+		ID: 4011,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2011,
+		SkillID: 4011,
 		Treasure: 0,
 		CastMP: 1,
 		CastThew: 0,
@@ -424,11 +304,11 @@ module.exports = {
 		CardQuality: 2,
 		CardAttributes: [1]
 	},
-	2012: {
-		ID: 2012,
+	4012: {
+		ID: 4012,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2012,
+		SkillID: 4012,
 		Treasure: 0,
 		CastMP: 2,
 		CastThew: 0,
@@ -436,11 +316,11 @@ module.exports = {
 		CardQuality: 1,
 		CardAttributes: [1]
 	},
-	2013: {
-		ID: 2013,
+	4013: {
+		ID: 4013,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2013,
+		SkillID: 4013,
 		Treasure: 0,
 		CastMP: 4,
 		CastThew: 0,
@@ -448,11 +328,11 @@ module.exports = {
 		CardQuality: 1,
 		CardAttributes: [1]
 	},
-	2014: {
-		ID: 2014,
+	4014: {
+		ID: 4014,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2014,
+		SkillID: 4014,
 		Treasure: 0,
 		CastMP: 5,
 		CastThew: 0,
@@ -460,11 +340,11 @@ module.exports = {
 		CardQuality: 2,
 		CardAttributes: [2]
 	},
-	2015: {
-		ID: 2015,
+	4015: {
+		ID: 4015,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2015,
+		SkillID: 4015,
 		Treasure: 0,
 		CastMP: 2,
 		CastThew: 0,
@@ -472,11 +352,11 @@ module.exports = {
 		CardQuality: 4,
 		CardAttributes: [2]
 	},
-	2016: {
-		ID: 2016,
+	4016: {
+		ID: 4016,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2016,
+		SkillID: 4016,
 		Treasure: 0,
 		CastMP: 5,
 		CastThew: 0,
@@ -484,11 +364,11 @@ module.exports = {
 		CardQuality: 3,
 		CardAttributes: [1]
 	},
-	2017: {
-		ID: 2017,
+	4017: {
+		ID: 4017,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2017,
+		SkillID: 4017,
 		Treasure: 0,
 		CastMP: 3,
 		CastThew: 0,
@@ -496,11 +376,11 @@ module.exports = {
 		CardQuality: 3,
 		CardAttributes: [1]
 	},
-	2018: {
-		ID: 2018,
+	4018: {
+		ID: 4018,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2018,
+		SkillID: 4018,
 		Treasure: 0,
 		CastMP: 2,
 		CastThew: 0,
@@ -508,11 +388,11 @@ module.exports = {
 		CardQuality: 3,
 		CardAttributes: [2]
 	},
-	2019: {
-		ID: 2019,
+	4019: {
+		ID: 4019,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2019,
+		SkillID: 4019,
 		Treasure: 0,
 		CastMP: 5,
 		CastThew: 0,
@@ -520,11 +400,11 @@ module.exports = {
 		CardQuality: 3,
 		CardAttributes: [1]
 	},
-	2020: {
-		ID: 2020,
+	4020: {
+		ID: 4020,
 		UseLimit: {},
 		HeroID: 1000,
-		SkillID: 2020,
+		SkillID: 4020,
 		Treasure: 0,
 		CastMP: 4,
 		CastThew: 0,
@@ -532,71 +412,131 @@ module.exports = {
 		CardQuality: 4,
 		CardAttributes: [1]
 	},
-	10001: {
-		ID: 10001,
+	18001: {
+		ID: 18001,
 		UseLimit: {},
-		HeroID: 0,
-		SkillID: 10001,
+		HeroID: 1000,
+		SkillID: 18001,
+		Treasure: 0,
+		CastMP: 0,
+		CastThew: 0,
+		CardType: 1,
+		CardQuality: 2,
+		CardAttributes: [1]
+	},
+	18002: {
+		ID: 18002,
+		UseLimit: {},
+		HeroID: 1000,
+		SkillID: 18002,
 		Treasure: 0,
 		CastMP: 1,
 		CastThew: 0,
 		CardType: 1,
 		CardQuality: 2,
+		CardAttributes: [2]
+	},
+	18003: {
+		ID: 18003,
+		UseLimit: {},
+		HeroID: 1000,
+		SkillID: 18003,
+		Treasure: 0,
+		CastMP: 2,
+		CastThew: 0,
+		CardType: 1,
+		CardQuality: 1,
 		CardAttributes: [1]
 	},
-	10002: {
-		ID: 10002,
+	18004: {
+		ID: 18004,
 		UseLimit: {},
-		HeroID: 0,
-		SkillID: 10002,
+		HeroID: 1000,
+		SkillID: 18004,
+		Treasure: 0,
+		CastMP: 2,
+		CastThew: 0,
+		CardType: 3,
+		CardQuality: 3,
+		CardAttributes: [2,4]
+	},
+	18005: {
+		ID: 18005,
+		UseLimit: {},
+		HeroID: 1000,
+		SkillID: 18005,
+		Treasure: 0,
+		CastMP: 4,
+		CastThew: 0,
+		CardType: 3,
+		CardQuality: 4,
+		CardAttributes: [2]
+	},
+	18006: {
+		ID: 18006,
+		UseLimit: {},
+		HeroID: 1000,
+		SkillID: 18006,
+		Treasure: 0,
+		CastMP: 2,
+		CastThew: 0,
+		CardType: 2,
+		CardQuality: 3,
+		CardAttributes: [2]
+	},
+	18007: {
+		ID: 18007,
+		UseLimit: {},
+		HeroID: 1000,
+		SkillID: 18007,
 		Treasure: 0,
 		CastMP: 3,
 		CastThew: 0,
-		CardType: 1,
-		CardQuality: 2,
+		CardType: 2,
+		CardQuality: 1,
 		CardAttributes: [1]
 	},
-	10003: {
-		ID: 10003,
+	18008: {
+		ID: 18008,
 		UseLimit: {},
-		HeroID: 0,
-		SkillID: 10003,
+		HeroID: 1000,
+		SkillID: 18008,
+		Treasure: 0,
+		CastMP: 2,
+		CastThew: 0,
+		CardType: 2,
+		CardQuality: 3,
+		CardAttributes: [1]
+	},
+	18009: {
+		ID: 18009,
+		UseLimit: {},
+		HeroID: 1000,
+		SkillID: 18009,
 		Treasure: 0,
 		CastMP: 6,
 		CastThew: 0,
 		CardType: 1,
-		CardQuality: 3,
+		CardQuality: 1,
 		CardAttributes: [1]
 	},
-	10004: {
-		ID: 10004,
+	18010: {
+		ID: 18010,
 		UseLimit: {},
-		HeroID: 0,
-		SkillID: 10004,
+		HeroID: 1000,
+		SkillID: 18010,
 		Treasure: 0,
-		CastMP: 4,
+		CastMP: 5,
 		CastThew: 0,
 		CardType: 1,
-		CardQuality: 3,
-		CardAttributes: [2,4]
-	},
-	10005: {
-		ID: 10005,
-		UseLimit: {},
-		HeroID: 0,
-		SkillID: 10005,
-		Treasure: 0,
-		CastMP: 0,
-		CastThew: 0,
-		CardType: 2,
 		CardQuality: 4,
-		CardAttributes: [2,4]
+		CardAttributes: [1]
 	},
-	10101: {
-		ID: 10101,
+	100001: {
+		ID: 100001,
 		UseLimit: {},
 		HeroID: 0,
-		SkillID: 10101,
+		SkillID: 100001,
 		Treasure: 0,
 		CastMP: 1,
 		CastThew: 0,
@@ -604,23 +544,11 @@ module.exports = {
 		CardQuality: 2,
 		CardAttributes: [1]
 	},
-	10102: {
-		ID: 10102,
+	100002: {
+		ID: 100002,
 		UseLimit: {},
 		HeroID: 0,
-		SkillID: 10102,
-		Treasure: 0,
-		CastMP: 4,
-		CastThew: 0,
-		CardType: 1,
-		CardQuality: 2,
-		CardAttributes: [1]
-	},
-	10201: {
-		ID: 10201,
-		UseLimit: {},
-		HeroID: 0,
-		SkillID: 10201,
+		SkillID: 100002,
 		Treasure: 0,
 		CastMP: 3,
 		CastThew: 0,
@@ -628,35 +556,59 @@ module.exports = {
 		CardQuality: 2,
 		CardAttributes: [1]
 	},
-	10202: {
-		ID: 10202,
+	100003: {
+		ID: 100003,
 		UseLimit: {},
 		HeroID: 0,
-		SkillID: 10202,
+		SkillID: 100003,
 		Treasure: 0,
-		CastMP: 5,
+		CastMP: 6,
+		CastThew: 0,
+		CardType: 1,
+		CardQuality: 3,
+		CardAttributes: [1]
+	},
+	100004: {
+		ID: 100004,
+		UseLimit: {},
+		HeroID: 0,
+		SkillID: 100004,
+		Treasure: 0,
+		CastMP: 4,
+		CastThew: 0,
+		CardType: 1,
+		CardQuality: 3,
+		CardAttributes: [2,4]
+	},
+	100005: {
+		ID: 100005,
+		UseLimit: {},
+		HeroID: 0,
+		SkillID: 100005,
+		Treasure: 0,
+		CastMP: 0,
+		CastThew: 0,
+		CardType: 2,
+		CardQuality: 4,
+		CardAttributes: [2,4]
+	},
+	100101: {
+		ID: 100101,
+		UseLimit: {},
+		HeroID: 0,
+		SkillID: 100101,
+		Treasure: 0,
+		CastMP: 1,
 		CastThew: 0,
 		CardType: 1,
 		CardQuality: 2,
 		CardAttributes: [1]
 	},
-	10301: {
-		ID: 10301,
+	100102: {
+		ID: 100102,
 		UseLimit: {},
 		HeroID: 0,
-		SkillID: 10301,
-		Treasure: 0,
-		CastMP: 2,
-		CastThew: 0,
-		CardType: 1,
-		CardQuality: 2,
-		CardAttributes: [1]
-	},
-	10302: {
-		ID: 10302,
-		UseLimit: {},
-		HeroID: 0,
-		SkillID: 10302,
+		SkillID: 100102,
 		Treasure: 0,
 		CastMP: 4,
 		CastThew: 0,
@@ -664,11 +616,59 @@ module.exports = {
 		CardQuality: 2,
 		CardAttributes: [1]
 	},
-	10303: {
-		ID: 10303,
+	100201: {
+		ID: 100201,
 		UseLimit: {},
 		HeroID: 0,
-		SkillID: 10303,
+		SkillID: 100201,
+		Treasure: 0,
+		CastMP: 3,
+		CastThew: 0,
+		CardType: 1,
+		CardQuality: 2,
+		CardAttributes: [1]
+	},
+	100202: {
+		ID: 100202,
+		UseLimit: {},
+		HeroID: 0,
+		SkillID: 100202,
+		Treasure: 0,
+		CastMP: 5,
+		CastThew: 0,
+		CardType: 1,
+		CardQuality: 2,
+		CardAttributes: [1]
+	},
+	100301: {
+		ID: 100301,
+		UseLimit: {},
+		HeroID: 0,
+		SkillID: 100301,
+		Treasure: 0,
+		CastMP: 2,
+		CastThew: 0,
+		CardType: 1,
+		CardQuality: 2,
+		CardAttributes: [1]
+	},
+	100302: {
+		ID: 100302,
+		UseLimit: {},
+		HeroID: 0,
+		SkillID: 100302,
+		Treasure: 0,
+		CastMP: 4,
+		CastThew: 0,
+		CardType: 1,
+		CardQuality: 2,
+		CardAttributes: [1]
+	},
+	100303: {
+		ID: 100303,
+		UseLimit: {},
+		HeroID: 0,
+		SkillID: 100303,
 		Treasure: 0,
 		CastMP: 0,
 		CastThew: 0,

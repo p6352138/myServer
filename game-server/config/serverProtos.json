@@ -1,4 +1,21 @@
 {
+  "message CardInfo": {
+    "required uInt32 cid": 1,
+    "required uInt32 lv": 2,
+    "required uInt32 mp": 3
+  },
+
+  "message Buff": {
+    "required uInt32 id": 1,
+    "required string realID": 2,
+    "message Cell": {
+      "required int32 endTime": 1,
+      "required string casterID": 2,
+      "optional uInt32 effectNum": 3
+    },
+    "repeated Cell cells": 3
+  },
+
   "onBeginSelect": {
     "message TeamInfo": {
       "message Member": {
@@ -32,12 +49,7 @@
       "required uInt32 mpRecoverTime": 6,
       "required uInt32 mpRecoverRate": 7,
       "required uInt32 stopMpRecoverBuffCnt": 8,
-      "repeated uInt32 inHands": 9,
-      "message CardsLv": {
-        "required uInt32 cid": 1,
-        "required uInt32 lv": 2
-      },
-      "repeated CardsLv cardsLv": 10
+      "repeated CardInfo inHands": 9
     },
     "required MyInfo myInfo": 1,
     "message TeamInfo": {
@@ -56,16 +68,6 @@
         "required uInt32 pos": 12,
         "required float scale": 13,
         "required string uid": 14,
-        "message Buff": {
-          "required uInt32 id": 1,
-          "required string realID": 2,
-          "message Cell": {
-            "required int32 endTime": 1,
-            "required string casterID": 2,
-            "optional uInt32 effectNum": 3
-          },
-          "repeated Cell cells": 3
-        },
         "repeated Buff buffs": 15,
         "required string groupId": 16,
         "optional string name": 17
@@ -75,7 +77,7 @@
     },
     "required TeamInfo teamInfo": 2,
     "required uInt32 dgId": 3,
-    "required string matchType": 4,
+    "required string teamType": 4,
     "required uInt32 matchNum": 5,
     "message SpawnSummons": {
       "message Group": {
@@ -96,7 +98,7 @@
   "onUseCard": {
     "required uInt32 mp": 1,
     "required uInt32 thew": 2,
-    "repeated uInt32 inHands": 3,
+    "repeated CardInfo inHands": 3,
     "optional uInt32 exhaustsNum": 4,
     "optional uInt32 discardsNum": 5
   },
@@ -109,7 +111,7 @@
   },
 
   "onDrawCard": {
-    "repeated uInt32 inHands": 1,
+    "repeated CardInfo inHands": 1,
     "required uInt32 cardsNum": 2,
     "optional uInt32 discardsNum": 3
   },
@@ -163,10 +165,10 @@
   "onSpecificDrawCard": {
     "message GotCard": {
       "required uInt32 pileType": 1,
-      "required uInt32 card": 2
+      "required CardInfo card": 2
     },
     "repeated GotCard got": 1,
-    "repeated uInt32 inHands": 2
+    "repeated CardInfo inHands": 2
   },
 
   "onSpecificDrawCardNotify": {
@@ -182,7 +184,7 @@
 
   "onCreateCard": {
     "required uInt32 num": 1,
-    "repeated uInt32 inHands": 2
+    "repeated CardInfo inHands": 2
   },
 
   "onCreateCardNotify": {
@@ -196,7 +198,7 @@
     "required string targetID": 2,
     "required uInt32 sid": 3,
     "required uInt32 fromHp": 4,
-    "required uInt32 toHP": 5
+    "required uInt32 toHp": 5
   },
 
   "onRelive": {
@@ -210,16 +212,6 @@
   "onBuffUpdate": {
     "required string targetID": 1,
     "required string realID": 2,
-    "message Buff": {
-      "required uInt32 id": 1,
-      "required string realID": 2,
-      "required uInt32 layer": 3,
-      "message Cell": {
-        "required int32 endTime": 1,
-        "required string casterID": 2
-      },
-      "repeated Cell cells": 4
-    },
     "optional Buff info": 3
   },
 
@@ -228,18 +220,18 @@
     "required string casterID": 2,
     "required string targetID": 3,
     "required uInt32 fromHp": 4,
-    "required uInt32 toHP": 5,
+    "required uInt32 toHp": 5,
     "required int32 val": 6
   },
 
   "onDropCard": {
     "message DropItem": {
       "required uInt32 idx": 1,
-      "required uInt32 card": 2,
+      "required CardInfo card": 2,
       "required uInt32 toPile": 3
     },
     "repeated DropItem dropInfo": 1,
-    "repeated uInt32 inHands": 2
+    "repeated CardInfo inHands": 2
   },
 
   "onDropCardNotify": {
@@ -271,16 +263,6 @@
       "required uInt32 pos": 12,
       "required float scale": 13,
       "required string uid": 14,
-      "message Buff": {
-        "required uInt32 id": 1,
-        "required string realID": 2,
-        "message Cell": {
-          "required int32 endTime": 1,
-          "required string casterID": 2,
-          "optional uInt32 effectNum": 3
-        },
-        "repeated Cell cells": 3
-      },
       "repeated Buff buffs": 15,
       "required string groupId": 16,
       "optional string name": 17
@@ -289,7 +271,8 @@
   },
 
   "onGetMp": {
-    "required uInt32 mp": 1
+    "required string uid": 1,
+    "required uInt32 mp": 2
   },
 
   "onMpRecoverRateUpdate": {
@@ -332,16 +315,6 @@
       "required uInt32 pos": 12,
       "required float scale": 13,
       "required string uid": 14,
-      "message Buff": {
-        "required uInt32 id": 1,
-        "required string realID": 2,
-        "message Cell": {
-          "required int32 endTime": 1,
-          "required string casterID": 2,
-          "optional uInt32 effectNum": 3
-        },
-        "repeated Cell cells": 3
-      },
       "repeated Buff buffs": 15,
       "required string groupId": 16
     },

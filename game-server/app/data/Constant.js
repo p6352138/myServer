@@ -10,4 +10,6 @@ module.exports = {
 	BaseCardGain: 7,
 	DungeonCardLevel: 1,
 	DungeonArtifactLevel: 1,
+	SilverExchange: 100,
+	PowerExchange: 10,
 };

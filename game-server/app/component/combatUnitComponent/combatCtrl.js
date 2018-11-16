@@ -114,7 +114,7 @@ pro.onHeal = function (caster, val, sid) {
         targetID: entity.id,
         sid: sid,
         fromHp: orginHp,
-        toHP: entity.hp,
+        toHp: entity.hp,
     };
     this.entity.broadcast('onHeal', msg);
     this.entity.owner.dps.onHeal(msg);
@@ -134,7 +134,7 @@ pro.onBuffModHp = function (buff, hpVal, casterID, skillID) {
         casterID: casterID,
         targetID: entity.id,
         fromHp: orginHp,
-        toHP: entity.hp,
+        toHp: entity.hp,
         val: hpVal
     }
     this.entity.broadcast('onBuffModHp', msg);

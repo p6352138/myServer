@@ -35,7 +35,7 @@ wxHelper.setUserStorage = function (openid, session_key, ...args) {
     let signature = hmac.digest(encoding='hex');
     let url = 'https://api.weixin.qq.com/wxa/set_user_storage?access_token=' + pomelo.app.accessTokenMgr.access_token
         + '&signature=' + signature + '&openid=' + openid + '&sig_method=hmac_sha256';
-    console.log("xxxxxxxxxxxxx url", url);
+    console.log("xxxxxxxxxxxxx url", url, data, openid, session_key);
     fly.post(url, data)
         .then(function (response) {
             if (response.status != 200) {
@@ -48,7 +48,7 @@ wxHelper.setUserStorage = function (openid, session_key, ...args) {
                 logger.warn("setUserStorage busy.", data);
                 setTimeout(wxHelper.setUserStorage, 10 * 1000);
             }
-            else if (data.code != 0) {
+            else if (data.errcode != 0) {
                 logger.error("setUserStorage get error.", data);
             }
         })

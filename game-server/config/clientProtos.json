@@ -10,7 +10,8 @@
       "required string avatarUrl": 2,
       "required uInt32 gender": 3
     },
-    "required UserInfo userInfo": 2
+    "required UserInfo userInfo": 2,
+    "required string platform": 3
   },
 
   "connector.matchHandler.match": {
@@ -72,5 +73,38 @@
 
   "connector.entryHandler.exchangeSilver": {
     "required uInt32 gold": 1
+  },
+
+  "connector.entryHandler.exchangePower": {
+    "required uInt32 gold": 1
+  },
+
+  "connector.entryHandler.bagSell": {
+    "required uInt32 itemID": 1,
+    "required uInt32 cnt": 2
+  },
+
+  "connector.entryHandler.bagUse": {
+    "required uInt32 itemID": 1,
+    "required uInt32 cnt": 2
+  },
+
+  "connector.mailHandler.readMail": {
+    "required uInt32 type": 1,
+    "required string guid": 2
+  },
+
+  "connector.mailHandler.getMailReward": {
+    "required uInt32 type": 1,
+    "required string guid": 2
+  },
+
+  "connector.mailHandler.delMail": {
+    "required uInt32 type": 1,
+    "required string guid": 2
+  },
+
+  "connector.mailHandler.quickDelMails": {
+    "required uInt32 type": 1
   }
 }

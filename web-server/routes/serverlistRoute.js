@@ -16,7 +16,7 @@ var STATUS_NEW = 1;  // 新服
 var STATUS_BUSY = 2;  // 繁忙
 var STATUS_HOT = 3;  // 火爆
 
-var HOT_THRESHOLD = 1;  // 火爆阈值
+var HOT_THRESHOLD = 10;  // 火爆阈值
 
 var realTimeServerList = [];
 
@@ -72,14 +72,14 @@ module.exports = function (req, res, next) {
     fly.get(url).then(
         function (response) {
             if (response.status != 200) {
-                next(null, {code: consts.Login.FAIL});
                 console.error("get openid connect failed.");
+                res.status(response.status).end();
                 return;
             }
             var openid = code;
-            var data = response.data;
+            var data = JSON.parse(response.data);
             // todo: 模拟登陆，直接拿code作为openid
-            if (data["errcode"] != 0) {
+            if (data.errcode) {
                 console.error("get openid error." + data);
             } else {
                 openid = data["openid"];

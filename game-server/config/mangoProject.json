@@ -4,9 +4,8 @@
     "centerServerIP": "203.195.206.97",
     "centerServerUpdatePort": 3004,
     "centerServerQueryPort": 3003,
-	
     "centerControlPort": 4002,
-    "globalMasterIP": "192.168.0.113",
+    "globalMasterIP": "127.0.0.1",
     "globalMasterPort": 23005
   },
   "production": {
@@ -15,7 +14,7 @@
     "centerServerUpdatePort": 3004,
     "centerServerQueryPort": 3003,
     "centerControlPort": 4002,
-    "globalMasterIP": "203.195.206.97",
+    "globalMasterIP": "172.16.0.12",
     "globalMasterPort": 23005
   }
 }

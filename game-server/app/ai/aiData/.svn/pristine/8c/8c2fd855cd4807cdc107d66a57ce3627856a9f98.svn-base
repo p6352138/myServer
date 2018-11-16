@@ -1,0 +1,215 @@
+// !!!auto generate!!!
+var bt_consts = require('../bt_consts');
+var btreeManager = require('../btreeManager');
+var nodes = require('../nodes/leafNodes');
+var consts = require('../../common/consts');
+
+var TREE_NAME = "jiaojing";
+
+/**
+ * 属性判断
+ */
+var n0000_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "hpPct", "<=", 0.75);
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n0001_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10004
+ */
+var n0002_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10004);
+};
+
+
+/**
+ * 使用卡牌 id：10004
+ */
+var n0003_useCard = function(owner) {
+    return nodes.useCard(owner, 10004);
+};
+
+
+/**
+ * 属性判断
+ */
+var n0100_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "hpPct", "<=", 0.5);
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n0101_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10004
+ */
+var n0102_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10004);
+};
+
+
+/**
+ * 使用卡牌 id：10004
+ */
+var n0103_useCard = function(owner) {
+    return nodes.useCard(owner, 10004);
+};
+
+
+/**
+ * 属性判断
+ */
+var n0200_checkAttributes = function(owner) {
+    return nodes.checkAttributes(owner, "self", "hpPct", "<=", 0.25);
+};
+
+
+/**
+ * 是否可使用卡牌 10005
+ */
+var n0201_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10005);
+};
+
+
+/**
+ * 使用卡牌 id：10005
+ */
+var n0202_useCard = function(owner) {
+    return nodes.useCard(owner, 10005);
+};
+
+
+/**
+ * 是否可使用卡牌 10003
+ */
+var n030_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10003);
+};
+
+
+/**
+ * 使用卡牌 id：10003
+ */
+var n031_useCard = function(owner) {
+    return nodes.useCard(owner, 10003);
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n040_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10002
+ */
+var n041_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10002);
+};
+
+
+/**
+ * 使用卡牌 id：10002
+ */
+var n042_useCard = function(owner) {
+    return nodes.useCard(owner, 10002);
+};
+
+
+/**
+ * 选择仇恨值第1大目标
+ */
+var n050_selectHatredTarget = function(owner) {
+    return nodes.selectHatredTarget(owner, 0);
+};
+
+
+/**
+ * 是否可使用卡牌 10001
+ */
+var n051_canUseCard = function(owner) {
+    return nodes.canUseCard(owner, 10001);
+};
+
+
+/**
+ * 使用卡牌 id：10001
+ */
+var n052_useCard = function(owner) {
+    return nodes.useCard(owner, 10001);
+};
+
+
+// btree define
+var bt_code = {
+    n_root: {type: bt_consts.NodeType.ROOT, children: ['n0_Selector']},
+    // Selector
+    n0_Selector: {type: bt_consts.NodeType.SELECTOR, children: ['n00_DecoratorCountLimit', 'n01_DecoratorCountLimit', 'n02_DecoratorCountLimit', 'n03_Sequence', 'n04_Sequence', 'n05_Sequence']},
+    // 子节点成功执行1次
+    n00_DecoratorCountLimit: {type: bt_consts.NodeType.FILTER_EXE_TIMES, cnt: 1, onlySuccess: true, children: ['n000_Sequence']},
+    // Sequence
+    n000_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n0000_checkAttributes', 'n0001_selectHatredTarget', 'n0002_canUseCard', 'n0003_useCard']},
+    n0000_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n0000_checkAttributes},
+    n0001_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n0001_selectHatredTarget},
+    n0002_canUseCard: {type: bt_consts.NodeType.LEAF, func: n0002_canUseCard},
+    n0003_useCard: {type: bt_consts.NodeType.LEAF, func: n0003_useCard},
+    // 子节点成功执行1次
+    n01_DecoratorCountLimit: {type: bt_consts.NodeType.FILTER_EXE_TIMES, cnt: 1, onlySuccess: true, children: ['n010_Sequence']},
+    // Sequence
+    n010_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n0100_checkAttributes', 'n0101_selectHatredTarget', 'n0102_canUseCard', 'n0103_useCard']},
+    n0100_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n0100_checkAttributes},
+    n0101_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n0101_selectHatredTarget},
+    n0102_canUseCard: {type: bt_consts.NodeType.LEAF, func: n0102_canUseCard},
+    n0103_useCard: {type: bt_consts.NodeType.LEAF, func: n0103_useCard},
+    // 子节点成功执行1次
+    n02_DecoratorCountLimit: {type: bt_consts.NodeType.FILTER_EXE_TIMES, cnt: 1, onlySuccess: true, children: ['n020_Sequence']},
+    // Sequence
+    n020_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n0200_checkAttributes', 'n0201_canUseCard', 'n0202_useCard']},
+    n0200_checkAttributes: {type: bt_consts.NodeType.LEAF, func: n0200_checkAttributes},
+    n0201_canUseCard: {type: bt_consts.NodeType.LEAF, func: n0201_canUseCard},
+    n0202_useCard: {type: bt_consts.NodeType.LEAF, func: n0202_useCard},
+    // Sequence
+    n03_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n030_canUseCard', 'n031_useCard']},
+    n030_canUseCard: {type: bt_consts.NodeType.LEAF, func: n030_canUseCard},
+    n031_useCard: {type: bt_consts.NodeType.LEAF, func: n031_useCard},
+    // Sequence
+    n04_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n040_selectHatredTarget', 'n041_canUseCard', 'n042_useCard']},
+    n040_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n040_selectHatredTarget},
+    n041_canUseCard: {type: bt_consts.NodeType.LEAF, func: n041_canUseCard},
+    n042_useCard: {type: bt_consts.NodeType.LEAF, func: n042_useCard},
+    // Sequence
+    n05_Sequence: {type: bt_consts.NodeType.SEQUENCE, children: ['n050_selectHatredTarget', 'n051_canUseCard', 'n052_useCard']},
+    n050_selectHatredTarget: {type: bt_consts.NodeType.LEAF, func: n050_selectHatredTarget},
+    n051_canUseCard: {type: bt_consts.NodeType.LEAF, func: n051_canUseCard},
+    n052_useCard: {type: bt_consts.NodeType.LEAF, func: n052_useCard}
+};
+
+
+var res = btreeManager.createTree(TREE_NAME, bt_code);
+if (!res) {
+    throw new Error("load btree failed!!! tree name is " + TREE_NAME);
+};
+
+// 引入子树
+for (var name in bt_code) {
+    if (bt_code[name].type == bt_consts.NodeType.SUBTREE)
+        require('./' + bt_code[name].subtree);
+};

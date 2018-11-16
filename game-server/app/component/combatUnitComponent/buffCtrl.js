@@ -202,7 +202,7 @@ pro.removeBuff = function (buffID, casterID, realID, cellID) {
             if (cellID) {
                 buff.removeCell(cellID);
                 // 还有cell没结束
-                if (Object.keys(buff.cells) > 0) {
+                if (Object.keys(buff.cells).length > 0) {
                     this._onBuffUpdate(id);
                     return;
                 }

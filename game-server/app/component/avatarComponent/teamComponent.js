@@ -29,6 +29,7 @@ pro.init = function (opts) {
     this.invitedList = {};  // 邀请列表
     this.applyList = {};  // 求邀列表
 
+    this.leaveTimer = null;
     this.entity.safeBindEvent("EventDisconnect", this._onDisconenct.bind(this));
     this.entity.safeBindEvent("EventReconnect", this._onReconnect.bind(this));
 };
@@ -60,6 +61,10 @@ pro._onDisconenct = function () {
 };
 
 pro._onReconnect = function () {
+    this._clearTimer();
+};
+
+pro._clearTimer = function () {
     if (this.leaveTimer) {
         clearTimeout(this.leaveTimer);
         this.leaveTimer = null;
@@ -109,7 +114,7 @@ pro._genPropInfo = function () {
     return {
         id: this.entity.id,
         openid: this.entity.openid,
-        level: this.level,
+        level: this.entity.level,
         name: this.entity.name,
         sid: pomelo.app.getServerId(),
         sls: this.entity.ladder.singleLadderScore,
@@ -143,6 +148,9 @@ pro.buildTeam = function (teamType, specialId, next) {
     // 组队副本
     if (teamType === consts.Team.TYPE_RAID) {
         if (!(specialId in raidTpl)) {
+            return next(null, {code: consts.Code.FAIL});
+        }
+        if (raidTpl[specialId].RequirePlayers <= 1) {
             return next(null, {code: consts.Code.FAIL});
         }
         if (this.entity.level < raidTpl[specialId].RequireLevel) {
@@ -298,6 +306,7 @@ pro.acceptInvite = function (avtID, teamId, next) {
     if (!teamInfo) {
         return next(null, {code: consts.Code.FAIL});
     }
+    delete this.invitedList[avtID];
     this._callRemote('joinUserTeam', avtID, teamId, this._genPropInfo(), function (resp) {
         next(null, resp);
     });
@@ -475,6 +484,7 @@ pro.beginTeamMatch = function (next) {
 };
 
 pro.destroy = function () {
+    this._clearTimer();
     this.leaveTeam();
     Component.prototype.destroy.call(this);
 };

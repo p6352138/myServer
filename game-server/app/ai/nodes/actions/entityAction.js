@@ -73,7 +73,7 @@ entityAction.selectHatredTarget = function (aiComp, idx) {
 // 使用卡牌
 entityAction.useCard = function (aiComp, cid) {
     var cardCtrl = aiComp.entity.cardCtrl;
-    var idx = cardCtrl.inHands.indexOf(cid);
+    var idx = cardCtrl.getInHandCidIdx(cid);
     if (idx === -1)
         return bt_consts.StatusType.FAILURE;
     var tid = aiComp.getRunningData("target");
@@ -96,7 +96,7 @@ entityAction.randomUseCardByID = function (aiComp, cids, weights) {
     var totalWeight = 0;
     for (let i in cids) {
         let cid = cids[i];
-        let idx = cardCtrl.inHands.indexOf(cid);
+        let idx = cardCtrl.getInHandCidIdx(cid);
         if (idx === -1)
             continue;
         if (cardCtrl.checkCanUseCard(idx, cid, tid) === consts.FightCode.OK) {
@@ -113,7 +113,7 @@ entityAction.randomUseCardByID = function (aiComp, cids, weights) {
         rd -= validWeights[i];
         if (rd <= 0) {
             let cid = validCids[i];
-            let idx = cardCtrl.inHands.indexOf(cid);
+            let idx = cardCtrl.getInHandCidIdx(cid);
             cardCtrl.actualUseCard(idx, cid, tid);
             return bt_consts.StatusType.SUCCESS;
         }

@@ -141,7 +141,7 @@ pro.getSummonsDamageCntToEntity = function (groupId, opposite, type, consume) {
     for (var area in summons) {
         var cnt = summons[area];
         var areaList = matrixData["Area" + area];
-        for (var pos in areaList) {
+        for (var pos of areaList) {
             var entID = formation[pos - 1];
             if (entID) {
                 result[entID] = (result[entID] || 0) + cnt;

@@ -11,9 +11,23 @@ module.exports = {
         FAIL: 0
     },
 
+    // 平台
+    Platform: {
+        WIN: "win",
+        WECHAT: "wechat",
+    },
+
+    ServerList: {
+        STATUS_CLOSED: 0,  // 维护
+        STATUS_NEW: 1,  // 新服
+        STATUS_BUSY: 2,  // 繁忙
+        STATUS_HOT: 3,  // 火爆
+    },
+
     Login: {
         OK: 200,
         RELAY: 201,
+        MAINTAIN: 202,  // 维护
         FAIL: 500
     },
 
@@ -214,5 +228,50 @@ module.exports = {
         NOT_SINGLE_RAID: 2,  // 非单人副本
         HAD_SELECTED: 3,  // 已经选择
         LEVEL_LIMIT: 4,  // 等级不足
+    },
+
+    // 背包
+    Bag: {
+        FUNC_SELL: 1,  // 出售
+        FUNC_USE: 2,  // 使用
+        FUNC_SEE: 3,  // 查看
+        FUNC_EQUIPMENT: 4,  // 装备
+        FUNC_MELTING: 5,  // 熔炼
+    },
+
+    // 物品
+    Item: {
+        TYPE_ARTIFACT: 1,
+        TYPE_TREASURE: 2,
+        TYPE_CURRENCY: 99,  // 货币
+
+        CURRENCY: {
+            GOLD: 1,
+            SILVER: 2,
+            POWER: 3
+        }
+    },
+
+    // 邮件
+    Mail: {
+        FLAG_UNREAD: 1,  // 未读
+        FLAG_READ: 2,  // 已读
+        FLAG_GOT: 3,  // 已领
+        FLAG_DEL: 4,  // 删除，客户端收到后删除邮件即可
+
+        TYPE_FRIEND: 1,  // 好友邮件
+        TYPE_SYSTEM: 2,  // 系统邮件
+        TYPE_MESSAGE: 3,  // 消息邮件
+
+        LIFE_TIME: 86400 * 7 * 1000,  // 7天存活时间
+    },
+
+    MailCode: {
+        OK: 1,
+        NOT_EXIST: 2,  // 邮件不存在
+        NO_REWARD: 3,  // 没有奖励
+        HAD_GOT: 4,  // 已经领取
+        HAD_READ: 5,  // 已读
+        HAVE_REWARD: 6,  // 有奖励未领
     }
 }

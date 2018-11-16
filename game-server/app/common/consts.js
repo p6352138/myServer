@@ -39,6 +39,12 @@ var consts = {
     // 货币消耗reason
     SpendReason: {
         EXCHANGE_SILVER: "exchangeSilver",
+        EXCHANGE_POWER: "exchangePower",
+    },
+
+    // 货币获取原因
+    GiveReason: {
+        BAG_SELL: "bagSell",
     }
 };
 

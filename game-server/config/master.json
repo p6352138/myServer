@@ -3,12 +3,12 @@
     "id": "master-server-1", "host": "127.0.0.1", "port": 3005
   },
   "production": {
-    "id": "master-server-1", "host": "127.0.0.1", "port": 3005
+    "id": "master-server-1", "host": "172.16.0.12", "port": 3005
   },
   "global_dev": {
     "id": "global-master-server-1", "host": "127.0.0.1", "port": 23005
   },
   "global_pro": {
-    "id": "global-master-server-1", "host": "127.0.0.1", "port": 23005
+    "id": "global-master-server-1", "host": "172.16.0.12", "port": 23005
   }
 }

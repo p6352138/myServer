@@ -22,7 +22,7 @@ module.exports = {
 		InitialBuff: {},
 		AIStrategy: 'jiaojing',
 		AITick: 2,
-		InitialDrawPile: [10001,10001,10001,10001,10001,10001,10002,10002,10003,10003,10004,10004,10005]
+		InitialDrawPile: [100001,100001,100001,100001,100001,100001,100002,100002,100003,100003,100004,100004,100005]
 	},
 	10002: {
 		ID: 10002,
@@ -42,7 +42,7 @@ module.exports = {
 		InitialBuff: {10005:[1,-1],10105:[1,-1]},
 		AIStrategy: 'jiaojing',
 		AITick: 2,
-		InitialDrawPile: [10001,10001,10001,10001,10001,10001,10002,10002,10003,10003,10004,10004]
+		InitialDrawPile: [100001,100001,100001,100001,100001,100001,100002,100002,100003,100003,100004,100004]
 	},
 	10003: {
 		ID: 10003,
@@ -62,7 +62,7 @@ module.exports = {
 		InitialBuff: {},
 		AIStrategy: 'eyu',
 		AITick: 2,
-		InitialDrawPile: [10101,10101,10101,10101,10101,10101,10102,10102]
+		InitialDrawPile: [100101,100101,100101,100101,100101,100101,100102,100102]
 	},
 	10004: {
 		ID: 10004,
@@ -82,7 +82,7 @@ module.exports = {
 		InitialBuff: {},
 		AIStrategy: 'feilu',
 		AITick: 2,
-		InitialDrawPile: [10201,10201,10201,10201,10201,10201,10202,10202]
+		InitialDrawPile: [100201,100201,100201,100201,100201,100201,100202,100202]
 	},
 	10005: {
 		ID: 10005,
@@ -102,6 +102,6 @@ module.exports = {
 		InitialBuff: {},
 		AIStrategy: 'yuangui',
 		AITick: 2,
-		InitialDrawPile: [10301,10301,10301,10301,10301,10301,10302,10302]
+		InitialDrawPile: [100301,100301,100301,100301,100301,100301,100302,100302]
 	},
 };

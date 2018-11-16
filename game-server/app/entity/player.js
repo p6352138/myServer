@@ -73,8 +73,7 @@ pro.getClentInfo = function () {
         mpRecoverTime: this.mpRecoverTime,
         mpRecoverRate: this.mpRecoverRate,
         stopMpRecoverBuffCnt: this.stopMpRecoverBuffCnt,
-        inHands: this.cardCtrl.inHands,
-        cardsLv: this.cardCtrl.getCardsLvInfo()
+        inHands: this.cardCtrl.getInHandsInfo()
     }
 };
 

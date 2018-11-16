@@ -48,7 +48,7 @@ pro.updateOnlineNum = function() {
 };
 
 pro.checkin = function (openid, uid, sid, cb) {
-    logger.info("openid[%s] uid[%s] checkin.", openid, uid);
+    logger.info("openid[%s] uid[%s] sid[%s] checkin.", openid, uid, sid);
     var result = consts.CheckInResult.SUCCESS;
     var formerSid = null, formerUid = null;
     if (openid in this.openid2sid) {
@@ -61,6 +61,15 @@ pro.checkin = function (openid, uid, sid, cb) {
         this.openid2uid[openid] = uid;
     }
     utils.invokeCallback(cb, result, formerSid, formerUid);
+};
+
+pro.globalCheckin = function (openid, uid, sid, cb) {
+    logger.info("openid[%s] uid[%s] sid[%s] globalCheckin.", openid, uid, sid);
+    var result = consts.CheckInResult.SUCCESS;
+    this.openid2sid[openid] = sid;
+    this.uid2sid[uid] = sid;
+    this.openid2uid[openid] = uid;
+    utils.invokeCallback(cb, result);
 };
 
 // relay角色登录
@@ -83,11 +92,22 @@ pro.checkout = function (openid, uid, cb) {
 pro.callOnlineAvtMethod = function (uid, funcName, ...args) {
     let cb = args[args.length - 1];
     if (!(uid in this.uid2sid)) {
-        cb({code: consts.UserState.OFFLINE});
+        utils.invokeCallback(cb, {code: consts.UserState.OFFLINE});
         return;
     }
     let params = args.slice(0, args.length - 1);
     this.app.rpc.connector.entryRemote[funcName].toServer(this.uid2sid[uid], uid, ...params, function (resp) {
-        cb(resp);
+        utils.invokeCallback(cb, resp);
     });
+};
+
+pro.callOnlineAvtsMethod = function (uids, funcName, ...args) {
+    let cb = args[args.length - 1];
+    let params = args.slice(0, args.length - 1);
+    for (let uid of uids) {
+        if (this.uid2sid.hasOwnProperty(uid)) {
+            this.app.rpc.connector.entryRemote[funcName].toServer(this.uid2sid[uid], uid, ...params, null);
+        }
+    }
+    cb();
 };

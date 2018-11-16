@@ -16,10 +16,10 @@ module.exports = DrawCardListenerBuff;
 
 var pro = DrawCardListenerBuff.prototype;
 
-pro._onDrawCard = function (entity, cid, pileType) {
+pro._onDrawCard = function (entity, card, pileType) {
     if (this.piletype && this.piletype !== pileType)
         return;
-    var cardData = cardTpl[cid];
+    var cardData = card.config;
     if (this.cardType && this.cardType !== cardData.CardType)
         return;
     if (this.cardQuality && this.cardQuality !== cardData.CardQuality)

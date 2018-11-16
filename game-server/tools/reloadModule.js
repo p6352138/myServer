@@ -14,6 +14,11 @@ var DEFAULT_MASTER_PORT = 3005;
 
 var CONNECT_ERROR = 'Fail to connect to admin console server.';
 
+function abort(str) {
+    console.error(str);
+    process.exit(1);
+}
+
 function connectToMaster(id, opts, cb) {
     var client = new adminClient({username: opts.username, password: opts.password, md5: true});
     client.connect(id, opts.host, opts.port, function(err) {
