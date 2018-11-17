@@ -6,10 +6,10 @@ let fs = require('fs'), path = require('path');
 
 var mongodb = _require("./app/mongodb/mongodb");
 var RollStub = _require('./app/services/rollStub');
-var MatchStub = _require('./app/services/matchStub');
-let FriendStub = _require('./app/services/friendStub');
-let TeamStub = _require('./app/services/teamStub');
-let MailStub = _require('./app/services/mailStub');
+//var MatchStub = _require('./app/services/matchStub');
+//let FriendStub = _require('./app/services/friendStub');
+//let TeamStub = _require('./app/services/teamStub');
+//let MailStub = _require('./app/services/mailStub');
 var routeUtil = _require('./app/util/routeUtil');
 var dungeonFilter = _require('./app/servers/fight/filter/dungeonFilter');
 let avatarFilter = _require('./app/servers/connector/filter/avatarFilter');
@@ -40,19 +40,19 @@ let initAccessToken = function (app) {
 app.configure('production|development', 'connector', function () {
     app.set('canLogin', true);
     app.before(avatarFilter());
-    let curFilePath = path.resolve(__dirname);
+    //let curFilePath = path.resolve(__dirname);
     app.loadConfig('mangoConfig', app.getBase() + '/config/mangoProject.json');
-    let serverID = app.get('mangoConfig').serverID;
+    //let serverID = app.get('mangoConfig').serverID;
     app.set('connectorConfig',
         {
             connector: pomelo.connectors.hybridconnector,
             heartbeat: 10,
             useDict: true,
-            ssl: {
-                type: 'wss',
-                key: fs.readFileSync(curFilePath + '/keys/2_mango' + serverID + '.haisenyouxi.com.key'),
-                cert: fs.readFileSync(curFilePath + '/keys/1_mango' + serverID + '.haisenyouxi.com_bundle.crt')
-            },
+            //ssl: {
+            //    type: 'wss',
+            //    key: fs.readFileSync(curFilePath + '/keys/2_mango' + serverID + '.haisenyouxi.com.key'),
+            //    cert: fs.readFileSync(curFilePath + '/keys/1_mango' + serverID + '.haisenyouxi.com_bundle.crt')
+            //},
             useProtobuf: true,
             handshake: function (msg, cb) {
                 cb(null, {});
@@ -62,18 +62,18 @@ app.configure('production|development', 'connector', function () {
 
 app.configure('production|development', 'gate', function () {
     app.set('canLogin', true);
-    let curFilePath = path.resolve(__dirname);
+    //let curFilePath = path.resolve(__dirname);
     app.loadConfig('mangoConfig', app.getBase() + '/config/mangoProject.json');
-    let serverID = app.get('mangoConfig').serverID;
+    //let serverID = app.get('mangoConfig').serverID;
     app.set('connectorConfig',
         {
             connector: pomelo.connectors.hybridconnector,
             useDict: true,
-            ssl: {
-                type: 'wss',
-                key: fs.readFileSync(curFilePath + '/keys/2_mango' + serverID + '.haisenyouxi.com.key'),
-                cert: fs.readFileSync(curFilePath + '/keys/1_mango' + serverID + '.haisenyouxi.com_bundle.crt')
-            },
+            //ssl: {
+            //    type: 'wss',
+            //    key: fs.readFileSync(curFilePath + '/keys/2_mango' + serverID + '.haisenyouxi.com.key'),
+            //    cert: fs.readFileSync(curFilePath + '/keys/1_mango' + serverID + '.haisenyouxi.com_bundle.crt')
+            //},
             useProtobuf: true,
         });
 });
@@ -82,6 +82,7 @@ app.configure('production|development|global_dev|global_pro', 'fight', function 
     app.before(dungeonFilter());
 });
 
+///注册服务器监控
 app.configure('production|development|global_dev|global_pro', function () {
     app.enable('systemMonitor');
     if (typeof app.registerAdmin === 'function') {
@@ -97,6 +98,7 @@ app.configure('production|development|global_dev|global_pro', function () {
     // initDB(app);
     // message缓冲
     app.set('pushSchedulerConfig', {scheduler: pomelo.pushSchedulers.buffer, flushInterval: 20});
+    /*
     if (app.serverType !== 'master') {
         // 战斗服配置
         var fights = app.get('servers').fight;
@@ -114,7 +116,7 @@ app.configure('production|development|global_dev|global_pro', function () {
         }
         app.set('fightIdsMap', fightIdsMap);
     }
-
+    */
     // handler 热更新开关
     app.set('serverConfig',
         {
@@ -151,7 +153,7 @@ app.configure('production|development', 'auth', function () {
 app.configure('global_dev|global_pro', 'authGlobal', function () {
     app.set('rollStub', RollStub(app));
 });
-
+/*
 app.configure('production|development|global_dev|global_pro', 'match', function () {
     // 队伍类型对应要建的匹配服
     let types = {
@@ -198,7 +200,7 @@ app.configure('production|development|global_dev|global_pro', 'mail', function (
     initDB(app);
     app.set('mailStub', new MailStub({}), true);
 });
-
+*/
 let connectToCrossServer = function () {
     if (!consts.OPEN_CROSS_SERVER)
         return;

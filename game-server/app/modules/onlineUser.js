@@ -5,6 +5,7 @@ module.exports = function (opts) {
     return new Module(opts);
 };
 
+///监控标识符 ，用于唯一标识该监控模块，非常重要的一个参数，要向该模块获取和发送数据都靠这个ID作为参数！特别是之后如果需要让外部程序获取该模块的监控数据也必须靠这个参数
 module.exports.moduleId = 'onlineUser';
 
 var Module = function (opts) {
@@ -13,6 +14,7 @@ var Module = function (opts) {
 };
 
 Module.prototype.monitorHandler = function (agent, msg, cb) {
+    //this.app: 当前监控模块监控的服务器实例
     var app = this.app;
 
     var connection = app.components.__connection__;
