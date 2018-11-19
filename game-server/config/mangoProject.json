@@ -1,7 +1,7 @@
 {
   "development": {
     "serverID": 4,
-    "centerServerIP": "203.195.206.97",
+    "centerServerIP": "39.108.12.90",
     "centerServerUpdatePort": 3004,
     "centerServerQueryPort": 3003,
     "centerControlPort": 4002,
@@ -10,11 +10,11 @@
   },
   "production": {
     "serverID": 4,
-    "centerServerIP": "203.195.206.97",
+    "centerServerIP": "39.108.12.90",
     "centerServerUpdatePort": 3004,
     "centerServerQueryPort": 3003,
     "centerControlPort": 4002,
-    "globalMasterIP": "172.16.0.12",
+    "globalMasterIP": "127.0.0.1",
     "globalMasterPort": 23005
   }
 }
