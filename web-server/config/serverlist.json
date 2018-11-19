@@ -1,37 +1,9 @@
 [
   {
     "id": 1,
-    "ip": "mango1.haisenyouxi.com",
+    "ip": "139.199.25.25",
     "port": 3010,
-    "name": "测试内服",
-    "date": "2018-06-14"
-  },
-  {
-    "id": 2,
-    "ip": "mango2.haisenyouxi.com",
-    "port": 3010,
-    "name": "liuguolai",
-    "date": "2018-06-14"
-  },
-  {
-    "id": 3,
-    "ip": "mango3.haisenyouxi.com",
-    "port": 3010,
-    "name": "liuhaibo",
-    "date": "2018-11-13"
-  },
-  {
-    "id": 4,
-    "ip": "mango4.haisenyouxi.com",
-    "port": 3010,
-    "name": "pengwenhua",
-    "date": "2018-11-13"
-  },
-  {
-    "id": 5,
-    "ip": "mango5.haisenyouxi.com",
-    "port": 3010,
-    "name": "测试外服",
-    "date": "2018-08-02"
+    "name": "风雨同州 1",
+    "date": "2018-11-19"
   }
 ]
