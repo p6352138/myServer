@@ -3,8 +3,8 @@
   "port" : "27017",
   "database" : "mango_center",
   "options": {
-    "user": "mongouser",
-    "pass": "mango!mango",
+    "user": "admin",
+    "pass": "123",
     "poolSize": 5
   }
 }
