@@ -38,3 +38,4 @@ raidHelper.genRaidRoomTypeList = function (raidID, roomIdx) {
     }
     return result;
 };
+

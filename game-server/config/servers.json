@@ -137,44 +137,12 @@
         "args": " --inspect=46090"
       }
     ],
-    "match": [
-      {
-        "id": "match-server-1",
-        "host": "127.0.0.1",
-        "port": 25050,
-        "args": " --inspect=45050"
-      }
-    ],
-    "friend": [
-      {
-        "id": "friend-server-1",
-        "host": "127.0.0.1",
-        "port": 25060,
-        "args": " --inspect=45060"
-      }
-    ],
     "authGlobal": [
       {
         "id": "auth-global-server-1",
         "host": "127.0.0.1",
         "port": 24160,
         "args": " --inspect=44160"
-      }
-    ],
-    "team": [
-      {
-        "id": "team-server-1",
-        "host": "127.0.0.1",
-        "port": 25510,
-        "args": " --inspect=45510"
-      }
-    ],
-    "mail": [
-      {
-        "id": "mail-server-1",
-        "host": "127.0.0.1",
-        "port": 26010,
-        "args": " --inspect=46010"
       }
     ]
   },
@@ -209,39 +177,11 @@
         "matchNum": 4
       }
     ],
-    "match": [
-      {
-        "id": "match-server-1",
-        "host": "127.0.0.1",
-        "port": 25050
-      }
-    ],
-    "friend": [
-      {
-        "id": "friend-server-1",
-        "host": "127.0.0.1",
-        "port": 25060
-      }
-    ],
     "authGlobal": [
       {
         "id": "auth-global-server-1",
         "host": "127.0.0.1",
         "port": 24160
-      }
-    ],
-    "team": [
-      {
-        "id": "team-server-1",
-        "host": "127.0.0.1",
-        "port": 25510
-      }
-    ],
-    "mail": [
-      {
-        "id": "mail-server-1",
-        "host": "127.0.0.1",
-        "port": 26010
       }
     ]
   }
