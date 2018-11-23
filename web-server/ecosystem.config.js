@@ -11,11 +11,25 @@ module.exports = {
         env_production: {
             NODE_ENV: 'production'
         }
-    }, {
+    },
+    {
         name: 'Login_Update',
         script: 'appDbUpdate.js',
         output : './logs/appDbUpdate_out.log',
         error : './logs/appDbUpdate_error.err',
+        log_date_format: 'YYYY-MM-DD HH:mm Z',
+        env: {
+            NODE_ENV: 'development'
+        },
+        env_production: {
+            NODE_ENV: 'production'
+        }
+    },
+    {
+        name: 'Access',
+        script: 'appCenterControl.js',
+        output : './logs/Access_out.log',
+        error : './logs/Access_error.err',
         log_date_format: 'YYYY-MM-DD HH:mm Z',
         env: {
             NODE_ENV: 'development'
