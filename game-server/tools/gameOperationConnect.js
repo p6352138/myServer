@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/30
- * Author: liuguolai
+ * Author: pwh
  * Description: 负责运营操作跟服务器的连接
  */
 let adminClient = require('pomelo-admin').adminClient;

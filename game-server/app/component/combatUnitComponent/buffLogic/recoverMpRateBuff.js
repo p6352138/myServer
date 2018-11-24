@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/20
- * Author: liuguolai
+ * Author: pwh
  * Description: 恢复MP速率buff
  */
 var BuffLogic = _require('./buffLogic');

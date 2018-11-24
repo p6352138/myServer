@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/21
- * Author: liuguolai
+ * Author: pwh
  * Description:
  */
 var bt_consts = _require('../../bt_consts');

@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/12
- * Author: liuguolai
+ * Author: pwh
  * Description: 冰灵劲（消耗召唤物）
  */
 let costSummoned = {};

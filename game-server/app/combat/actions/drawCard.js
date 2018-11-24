@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/16
- * Author: liuguolai
+ * Author: pwh
  * Description: 指定抽牌
  */
 var drawCard = {};

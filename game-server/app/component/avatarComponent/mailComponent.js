@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/23
- * Author: liuguolai
+ * Author: pwh
  * Description: 邮件
  */
 let Component = _require('../component');

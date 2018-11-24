@@ -1,6 +1,6 @@
 /**
  * Date: 2018/6/20
- * Author: liuguolai
+ * Author: pwh
  * Description: 管理一场战斗里的各种状态
  */
 var Entity = _require('./entity');

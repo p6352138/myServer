@@ -1,7 +1,7 @@
 /*
- * @Author: liuguolai 
+ * @Author: pwh 
  * @Date: 2018-10-15 17:31:18 
- * @Last Modified by: liuguolai
+ * @Last Modified by: pwh
  * @Last Modified time: 2018-10-15 17:32:23
  * 组队副本获取奖励卡牌
  */

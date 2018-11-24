@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/11
- * Author: liuguolai
+ * Author: pwh
  * Description:
  */
 let entityFactory = _require('../../../entity/entityFactory');

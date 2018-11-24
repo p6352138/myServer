@@ -1,6 +1,6 @@
 /**
  * Date: 2018/8/3
- * Author: liuguolai
+ * Author: pwh
  * Description: 更新配置信息
  */
 var fs = require('fs');

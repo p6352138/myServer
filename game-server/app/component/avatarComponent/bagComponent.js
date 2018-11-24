@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/22
- * Author: liuguolai
+ * Author: pwh
  * Description: 背包
  */
 let Component = _require('../component');

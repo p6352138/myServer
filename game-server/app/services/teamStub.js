@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/7
- * Author: liuguolai
+ * Author: pwh
  * Description:  队伍管理
  */
 let logger = require('pomelo-logger').getLogger('game', 'teamStub');

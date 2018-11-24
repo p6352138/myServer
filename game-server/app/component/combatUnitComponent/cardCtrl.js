@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/3
- * Author: liuguolai
+ * Author: pwh
  * Description: 卡牌管理
  */
 var Component = _require('../component');

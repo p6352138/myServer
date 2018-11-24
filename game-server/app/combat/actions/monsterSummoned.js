@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/26
- * Author: liuguolai
+ * Author: pwh
  * Description: 分身
  */
 var fightHelper = _require('../../helper/fightHelper');

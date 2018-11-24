@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/8
- * Author: liuguolai
+ * Author: pwh
  * Description: 副本管理
  */
 let util = require('util');

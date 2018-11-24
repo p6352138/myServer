@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/12
- * Author: liuguolai
+ * Author: pwh
  * Description:  恢复灵力buff
  */
 let BuffLogic = _require('./buffLogic');

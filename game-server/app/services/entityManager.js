@@ -1,6 +1,6 @@
 /**
  * Date: 2018/6/12
- * Author: liuguolai
+ * Author: pwh
  * Description: 所有Entity的管理器
  */
 var logger = _require('pomelo-logger').getLogger('game', __filename);

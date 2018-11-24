@@ -1,6 +1,6 @@
 /**
  * Date: 2018/8/11
- * Author: liuguolai
+ * Author: pwh
  * Description: logger做一层wrapper，减少pomelo-logger实例数量
  */
 var Component = _require('../component');

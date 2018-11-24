@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/18
- * Author: liuguolai
+ * Author: pwh
  * Description:  好友组件
  */
 let pomelo = require('pomelo');

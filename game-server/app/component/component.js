@@ -1,6 +1,6 @@
 /**
  * Date: 2018/6/19
- * Author: liuguolai
+ * Author: pwh
  * Description: component基类定义
  */
 let EventEmitter = require('events').EventEmitter;

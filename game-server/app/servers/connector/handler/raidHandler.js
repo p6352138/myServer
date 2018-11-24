@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/8
- * Author: liuguolai
+ * Author: pwh
  * Description: 副本相关rpc接口
  */
 module.exports = function(app) {

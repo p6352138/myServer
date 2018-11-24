@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/30
- * Author: liuguolai
+ * Author: pwh
  * Description: 允许或者禁止登录
  */
 let connectToMaster = require('./gameOperationConnect').connectToMaster;

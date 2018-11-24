@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/19
- * Author: liuguolai
+ * Author: pwh
  * Description: 弃卡牌
  */
 var dropCard = {};

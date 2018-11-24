@@ -1,6 +1,6 @@
 /**
  * Date: 2018/6/15
- * Author: liuguolai
+ * Author: pwh
  * Description:
  */
 var serverInfo = {}  // 服务器信息缓存

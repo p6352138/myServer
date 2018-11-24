@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/7
- * Author: liuguolai
+ * Author: pwh
  * Description: 状态管理
  */
 var Component = _require('../component');

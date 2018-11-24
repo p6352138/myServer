@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/6
- * Author: liuguolai
+ * Author: pwh
  * Description: connector注册中心服数据
  */
 var logger = _require('pomelo-logger').getLogger('game', __filename);

@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/20
- * Author: liuguolai
+ * Author: pwh
  * Description: 微信接口
  */
 let crypto = require('crypto');

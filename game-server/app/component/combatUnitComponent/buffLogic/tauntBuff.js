@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/10
- * Author: liuguolai
+ * Author: pwh
  * Description: 嘲讽buff
  */
 var BuffLogic = _require('./buffLogic');

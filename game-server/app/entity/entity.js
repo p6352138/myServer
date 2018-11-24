@@ -1,6 +1,6 @@
 /**
  * Date: 2018/6/2
- * Author: liuguolai
+ * Author: pwh
  * Description: entity基类
  */
 

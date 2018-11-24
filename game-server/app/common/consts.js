@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/16
- * Author: liuguolai
+ * Author: pwh
  * Description: 服务器专用consts
  */
 var uconsts = _require('../public/consts');

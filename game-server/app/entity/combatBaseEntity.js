@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/3
- * Author: liuguolai
+ * Author: pwh
  * Description: 战斗实体基类定义
  */
 var util = _require('util');

@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/23
- * Author: liuguolai
+ * Author: pwh
  * Description: 邮件管理
  */
 let logger = require('pomelo-logger').getLogger('game', 'mailStub');

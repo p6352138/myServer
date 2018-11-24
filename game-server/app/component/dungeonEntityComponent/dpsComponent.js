@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/16
- * Author: liuguolai
+ * Author: pwh
  * Description: 策划dps需求
  */
 let Component = _require('../component');

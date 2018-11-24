@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/9
- * Author: liuguolai
+ * Author: pwh
  * Description: buff 基类
  */
 var buffTpl = _require('../../../data/Buff');

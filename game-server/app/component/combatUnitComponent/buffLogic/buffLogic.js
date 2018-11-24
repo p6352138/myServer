@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/9
- * Author: liuguolai
+ * Author: pwh
  * Description: buff逻辑代码，由BaseBuff创建
  */
 var buffTpl = _require('../../../data/Buff');

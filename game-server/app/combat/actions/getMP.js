@@ -1,6 +1,6 @@
 /**
  * Date: 2018/8/9
- * Author: liuguolai
+ * Author: pwh
  * Description: 获取MP
  */
 var getMP = {};

@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/14
- * Author: liuguolai
+ * Author: pwh
  * Description: 朱雀之印特殊buff
  */
 let BuffLogic = _require('./buffLogic');

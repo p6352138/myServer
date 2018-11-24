@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/27
- * Author: liuguolai
+ * Author: pwh
  * Description: 按Percent修改buff
  */
 var BuffLogic = _require('./buffLogic');

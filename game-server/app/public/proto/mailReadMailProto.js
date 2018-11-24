@@ -1,7 +1,7 @@
 /*
- * @Author: liuguolai 
+ * @Author: pwh 
  * @Date: 2018-10-25 20:02:46 
- * @Last Modified by: liuguolai
+ * @Last Modified by: pwh
  * @Last Modified time: 2018-10-25 20:17:42
  * 查看邮件时发送，收到OK时将邮件状态设为已读
  * @param type: 邮件类型，见consts

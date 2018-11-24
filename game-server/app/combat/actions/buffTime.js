@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/18
- * Author: liuguolai
+ * Author: pwh
  * Description: buff时间
  */
 let buffTime = {};

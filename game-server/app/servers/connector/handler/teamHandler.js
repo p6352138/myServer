@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/20
- * Author: liuguolai
+ * Author: pwh
  * Description: 队伍相关接口
  */
 module.exports = function (app) {

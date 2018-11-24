@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/31
- * Author: liuguolai
+ * Author: pwh
  * Description: 踢下线
  */
 let connectToMaster = require('./gameOperationConnect').connectToMaster;

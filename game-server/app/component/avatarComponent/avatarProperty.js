@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/20
- * Author: liuguolai
+ * Author: pwh
  * Description: avatar属性定义
  */
 let persistProperties = {

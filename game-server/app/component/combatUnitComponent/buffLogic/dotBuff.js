@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/11
- * Author: liuguolai
+ * Author: pwh
  * Description: 持续伤害
  */
 var BuffLogic = _require('./buffLogic');

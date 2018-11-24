@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/23
- * Author: liuguolai
+ * Author: pwh
  * Description: 仇恨系统
  */
 var Component = _require('../component');

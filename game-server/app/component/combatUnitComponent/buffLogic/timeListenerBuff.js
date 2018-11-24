@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/14
- * Author: liuguolai
+ * Author: pwh
  * Description: 时间监听
  */
 let BuffLogic = _require('./buffLogic');

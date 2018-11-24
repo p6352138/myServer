@@ -1,6 +1,6 @@
 /**
  * Date: 2018/11/14
- * Author: liuguolai
+ * Author: pwh
  * Description: 战斗卡牌对象
  */
 let cardTpl = _require('../data/Card');

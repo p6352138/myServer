@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/13
- * Author: liuguolai
+ * Author: pwh
  * Description: 管理access_token
  */
 let fly = require('flyio');

@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/19
- * Author: liuguolai
+ * Author: pwh
  * Description: 好友相关接口
  */
 module.exports = function (app) {

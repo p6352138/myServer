@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/11
- * Author: liuguolai
+ * Author: pwh
  * Description: 造成伤害次数监听buff
  */
 var BuffLogic = _require('./buffLogic');

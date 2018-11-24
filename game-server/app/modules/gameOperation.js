@@ -1,6 +1,6 @@
 /**
  * Date: 2018/10/30
- * Author: liuguolai
+ * Author: pwh
  * Description: 常用的运维操作放到这里
  */
 let countDownLatch = require('../../node_modules/pomelo/lib/util/countDownLatch');

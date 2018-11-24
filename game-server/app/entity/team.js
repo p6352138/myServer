@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/7
- * Author: liuguolai
+ * Author: pwh
  * Description: 队伍
  */
 var ObjectId = require('mongoose').Types.ObjectId;

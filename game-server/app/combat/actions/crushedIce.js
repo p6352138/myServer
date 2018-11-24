@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/12
- * Author: liuguolai
+ * Author: pwh
  * Description: 碎冰
  */
 let fightHelper = _require('../../helper/fightHelper'),

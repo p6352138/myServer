@@ -1,7 +1,7 @@
 /*
- * @Author: liuguolai 
+ * @Author: pwh 
  * @Date: 2018-09-19 16:45:46 
- * @Last Modified by: liuguolai
+ * @Last Modified by: pwh
  * @Last Modified time: 2018-09-19 16:46:19
  * 拒绝好友请求
  */

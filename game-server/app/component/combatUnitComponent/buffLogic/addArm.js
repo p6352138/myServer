@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/9
- * Author: liuguolai
+ * Author: pwh
  * Description:
  */
 var BuffLogic = _require('./buffLogic');

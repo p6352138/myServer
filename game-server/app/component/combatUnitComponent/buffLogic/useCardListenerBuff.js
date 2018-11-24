@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/12
- * Author: liuguolai
+ * Author: pwh
  * Description: 使用卡牌监听buff
  */
 var BuffLogic = _require('./buffLogic');

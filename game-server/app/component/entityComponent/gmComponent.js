@@ -1,6 +1,6 @@
 /**
  * Date: 2018/8/31
- * Author: liuguolai
+ * Author: pwh
  * Description:
  */
 var Component = _require('../component');

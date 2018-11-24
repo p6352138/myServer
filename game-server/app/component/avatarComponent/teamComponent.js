@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/7
- * Author: liuguolai
+ * Author: pwh
  * Description: 队伍组件
  */
 let util = require('util');

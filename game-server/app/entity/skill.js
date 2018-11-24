@@ -1,6 +1,6 @@
 /**
  * Date: 2018/7/6
- * Author: liuguolai
+ * Author: pwh
  * Description: 技能
  */
 var skillTpl = _require('../data/Skill');

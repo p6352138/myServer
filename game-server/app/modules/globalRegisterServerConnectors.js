@@ -1,6 +1,6 @@
 /**
  * Date: 2018/9/5
- * Author: liuguolai
+ * Author: pwh
  * Description: 给中心服注册逻辑服的connector
  */
 var countDownLatch = require('../../node_modules/pomelo/lib/util/countDownLatch');
