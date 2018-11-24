@@ -144,6 +144,22 @@
         "port": 24160,
         "args": " --inspect=44160"
       }
+    ],
+    "friend": [
+      {
+        "id": "friend-server-1",
+        "host": "192.168.0.113",
+        "port": 25060,
+        "args": " --inspect=45060"
+      }
+    ],
+    "mail": [
+      {
+        "id": "mail-server-1",
+        "host": "192.168.0.113",
+        "port": 26010,
+        "args": " --inspect=46010"
+      }
     ]
   },
   "global_pro": {
@@ -182,6 +198,22 @@
         "id": "auth-global-server-1",
         "host": "192.168.0.113",
         "port": 24160
+      }
+    ],
+    "friend": [
+      {
+        "id": "friend-server-1",
+        "host": "192.168.0.113",
+        "port": 25060,
+        "args": " --inspect=45060"
+      }
+    ],
+    "mail": [
+      {
+        "id": "mail-server-1",
+        "host": "192.168.0.113",
+        "port": 26010,
+        "args": " --inspect=46010"
       }
     ]
   }

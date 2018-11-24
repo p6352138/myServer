@@ -4,14 +4,26 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "node",
             "request": "attach",
-            "name": "本地调试程序",
+            "name": "本地调试程序connector服1",
+            "address": "127.0.0.1",
+            "port": 33150,
+            "localRoot": "${workspaceFolder}/game-server",
+            "remoteRoot": "${workspaceFolder}/game-server",
+            "restart": true,
+            "protocol": "inspector"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "本地调试程序gate-server-1##4",
             "address": "127.0.0.1",
             "port": 33010,
-            "localRoot": "${workspaceFolder}",
-            "remoteRoot": "${workspaceFolder}/game-server/app.js",
+            "localRoot": "${workspaceFolder}/game-server",
+            "remoteRoot": "${workspaceFolder}/game-server",
             "restart": true,
             "protocol": "inspector"
         },
@@ -21,8 +33,8 @@
             "name": "远程调试程序",
             "address": "139.199.25.25",
             "port": 33010,
-            "localRoot": "${workspaceFolder}",
-            "remoteRoot": "home/server/myServer/game-server/app.js",
+            "localRoot": "${workspaceFolder}/game-server",
+            "remoteRoot": "home/server/myServer/game-server",
             "restart": true,
             "protocol": "inspector"
         }

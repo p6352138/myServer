@@ -7,9 +7,9 @@ let fs = require('fs'), path = require('path');
 var mongodb = _require("./app/mongodb/mongodb");
 var RollStub = _require('./app/services/rollStub');
 //var MatchStub = _require('./app/services/matchStub');
-//let FriendStub = _require('./app/services/friendStub');
+let FriendStub = _require('./app/services/friendStub');
 //let TeamStub = _require('./app/services/teamStub');
-//let MailStub = _require('./app/services/mailStub');
+let MailStub = _require('./app/services/mailStub');
 var routeUtil = _require('./app/util/routeUtil');
 var dungeonFilter = _require('./app/servers/fight/filter/dungeonFilter');
 let avatarFilter = _require('./app/servers/connector/filter/avatarFilter');
@@ -185,22 +185,22 @@ app.configure('production|development|global_dev|global_pro', 'match', function 
     //     app.matchStub = MatchStub({matchType: server.match, num: server.num})
     // }
 });
-
+*/
 app.configure('production|development|global_dev|global_pro', 'friend', function () {
     initDB(app);
     app.set('friendStub', new FriendStub({}), true);
 });
-
+/*
 app.configure('production|development|global_dev|global_pro', 'team', function () {
     initDB(app);
     app.set('teamStub', new TeamStub({}), true);
 });
-
+*/
 app.configure('production|development|global_dev|global_pro', 'mail', function () {
     initDB(app);
     app.set('mailStub', new MailStub({}), true);
 });
-*/
+
 let connectToCrossServer = function () {
     if (!consts.OPEN_CROSS_SERVER)
         return;
