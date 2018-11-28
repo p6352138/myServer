@@ -273,5 +273,10 @@ module.exports = {
         HAD_GOT: 4,  // 已经领取
         HAD_READ: 5,  // 已读
         HAVE_REWARD: 6,  // 有奖励未领
+    },
+
+    DrawType : {
+        ONCE : 1,      // 抽一次
+        QUINTIC : 5,   // 抽五次
     }
 }
