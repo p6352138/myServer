@@ -14,6 +14,7 @@
 
  let pro = Remote.prototype;
 
+ ///
  pro.drawCard = function(cardsID,cb){
      this.app.drawCardsStub.drawCard(cardsID,cb);
  }

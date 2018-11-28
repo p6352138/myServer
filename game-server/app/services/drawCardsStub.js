@@ -7,6 +7,7 @@
 let logger = require('pomelo-logger').getLogger('game', 'teamStub');
 let pomelo = require('pomelo');
 let heroData = require('../data/Hero')
+let cards = require('../data/Cards')
 
 let DrawCardsStub = function (opts) {
     opts = opts || {};
