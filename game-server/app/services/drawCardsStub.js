@@ -11,12 +11,28 @@ let cards = require('../data/Cards')
 
 let DrawCardsStub = function (opts) {
     opts = opts || {};
-    this.cards = new Array();  // 卡池
+    //this.cards = new Array();  // 卡池
+    this.three = new Array();   //三星卡池
+    this.four = new Array();    //四星卡池
+    this.five = new Array();    //五星卡池
 
-    ///初始化卡池
-    for(var key in heroData)
+    ///初始化卡池 1000 名将卡包
+    var cardss = cards[1000];
+    for(var key in cardss.Cards)
     {
-
+        var result = cardss.Cards[key].ID / 1000;
+        if(result == 3)
+        {
+            this.three.push(cardss.Cards[key])
+        }
+        else if(result == 4)
+        {
+            this.four.push(cardss.Cards[key])
+        }
+        else if(result == 5)
+        {
+            this.five.push(cardss.Cards[key])
+        }
     }
 };
 
