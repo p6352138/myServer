@@ -19,6 +19,17 @@
         {
             "type": "node",
             "request": "attach",
+            "name": "本地调试程序connector服2",
+            "address": "127.0.0.1",
+            "port": 33151,
+            "localRoot": "${workspaceFolder}/game-server",
+            "remoteRoot": "${workspaceFolder}/game-server",
+            "restart": true,
+            "protocol": "inspector"
+        },
+        {
+            "type": "node",
+            "request": "attach",
             "name": "本地调试程序gate-server-1##4",
             "address": "127.0.0.1",
             "port": 33010,

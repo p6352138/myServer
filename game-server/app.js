@@ -8,7 +8,7 @@ var mongodb = _require("./app/mongodb/mongodb");
 var RollStub = _require('./app/services/rollStub');
 //var MatchStub = _require('./app/services/matchStub');
 let FriendStub = _require('./app/services/friendStub');
-//let TeamStub = _require('./app/services/teamStub');
+let DrawCardsStub = _require('./app/services/drawCardsStub');
 let MailStub = _require('./app/services/mailStub');
 var routeUtil = _require('./app/util/routeUtil');
 var dungeonFilter = _require('./app/servers/fight/filter/dungeonFilter');
@@ -190,12 +190,12 @@ app.configure('production|development|global_dev|global_pro', 'friend', function
     initDB(app);
     app.set('friendStub', new FriendStub({}), true);
 });
-/*
-app.configure('production|development|global_dev|global_pro', 'team', function () {
+
+app.configure('production|development|global_dev|global_pro', 'drawCard', function () {
     initDB(app);
-    app.set('teamStub', new TeamStub({}), true);
+    app.set('drawCardStub', new DrawCardsStub({}), true);
 });
-*/
+
 app.configure('production|development|global_dev|global_pro', 'mail', function () {
     initDB(app);
     app.set('mailStub', new MailStub({}), true);

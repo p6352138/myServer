@@ -1485,8 +1485,8 @@ module.exports = {
 		Action: {},
 		UseNum: 0,
 		Durable: 200,
-		probaillity: 经久善战：使我军群体防御属性提高17.5，持续2回合,
-		describe: ''
+		probaillity: 0,
+		describe: '经久善战：使我军群体防御属性提高17.5，持续2回合'
 	},
 	10106: {
 		ID: 10106,
@@ -1527,8 +1527,8 @@ module.exports = {
 		Action: {},
 		UseNum: 0,
 		Durable: 200,
-		probaillity: 吴之副督：战斗开始后前3回合，以降低自身攻击10为代价，使友军全体防御属性提高25,
-		describe: ''
+		probaillity: 0,
+		describe: '吴之副督：战斗开始后前3回合，以降低自身攻击10为代价，使友军全体防御属性提高25'
 	},
 	10109: {
 		ID: 10109,
@@ -2017,8 +2017,8 @@ module.exports = {
 		Action: {},
 		UseNum: 0,
 		Durable: 0,
-		probaillity: 名士在野：战斗中，使友军全体谋略属性提高17.5，每回合有50%的机率使在本回合其受到攻击的伤害下降11%（受谋略属性影响）,
-		describe: ''
+		probaillity: 0,
+		describe: '名士在野：战斗中，使友军全体谋略属性提高17.5，每回合有50%的机率使在本回合其受到攻击的伤害下降11%（受谋略属性影响）'
 	},
 	10144: {
 		ID: 10144,
@@ -2129,8 +2129,8 @@ module.exports = {
 		Action: {},
 		UseNum: 0,
 		Durable: 200,
-		probaillity: 勇将继传：战斗开始后前4回合，使自身发动攻击时无视目标的规避状态，在此期间，每回合都有50%进入分兵状态，普通攻击后同时对附近的敌军造成伤害（伤害率50%）,
-		describe: ''
+		probaillity: 0,
+		describe: '勇将继传：战斗开始后前4回合，使自身发动攻击时无视目标的规避状态，在此期间，每回合都有50%进入分兵状态，普通攻击后同时对附近的敌军造成伤害（伤害率50%）'
 	},
 	10152: {
 		ID: 10152,
@@ -2745,8 +2745,8 @@ module.exports = {
 		Action: {},
 		UseNum: 0,
 		Durable: 200,
-		probaillity: 奇士薄寿：使自身谋略属性提高25，战斗开始后前4回合，使自身防御属性降低50%，并处于洞察状态,
-		describe: ''
+		probaillity: 0,
+		describe: '奇士薄寿：使自身谋略属性提高25，战斗开始后前4回合，使自身防御属性降低50%，并处于洞察状态'
 	},
 	10196: {
 		ID: 10196,
@@ -2801,8 +2801,8 @@ module.exports = {
 		Action: {},
 		UseNum: 0,
 		Durable: 200,
-		probaillity: 花中秀：对敌军单体发动攻击（伤害率127.5%），并使其攻击、谋略降低22.5%（受攻击属性影响），持续2回合,
-		describe: ''
+		probaillity: 0,
+		describe: '花中秀：对敌军单体发动攻击（伤害率127.5%），并使其攻击、谋略降低22.5%（受攻击属性影响），持续2回合'
 	},
 	10200: {
 		ID: 10200,
@@ -5223,8 +5223,8 @@ module.exports = {
 		Action: {},
 		UseNum: 0,
 		Durable: 0,
-		probaillity: 雀伏：对敌军单体发动一次策略攻击（伤害率82.5%，受谋略属性影响）,
-		describe: ''
+		probaillity: 0,
+		describe: '雀伏：对敌军单体发动一次策略攻击（伤害率82.5%，受谋略属性影响）'
 	},
 	20144: {
 		ID: 20144,

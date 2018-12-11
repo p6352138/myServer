@@ -16,7 +16,7 @@ var Avatar = function (opts) {
     opts = opts || {};
     // avatar组件
     opts.components = ['avatarProp', 'bag', 'friend', 'match', 'hero',
-        'dungeon', 'ladder', 'team', 'raid', 'mail', 'gm'];
+        'dungeon', 'ladder', 'team', 'raid', 'mail', 'gm','cardsPool'];
     Entity.call(this, opts);
 
     this.logoutTimer = null;
@@ -62,6 +62,7 @@ pro.getDBProp = function () {
     props['bag'] = this.bag.getPersistData();
     props['mail'] = this.mail.getPersistData();
     props['hero'] = this.hero.getPersistData();
+    props['cardsPool'] = this.cardsPool.getPersistData();
     return props;
 };
 

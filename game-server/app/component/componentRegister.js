@@ -17,6 +17,8 @@ let AvatarPropertyCtrl = _require('./avatarComponent/avatarPropertyCtrl');
 let BagComponent = _require('./avatarComponent/bagComponent');
 let MailComponent = _require('./avatarComponent/mailComponent');
 
+let cardsPoolComponent = _require('./avatarComponent/cardsPoolComponent')
+
 var AIBehavior = _require('./combatUnitComponent/aiBehavior');
 var BuffCtrl = _require('./combatUnitComponent/buffCtrl');
 var CardCtrl = _require('./combatUnitComponent/cardCtrl');
@@ -28,6 +30,7 @@ var SkillCtrl = _require('./combatUnitComponent/skillCtrl');
 
 let summonsComponent = _require('./dungeonEntityComponent/summonsComponent');
 let dpsComponent = _require('./dungeonEntityComponent/dpsComponent');
+
 
 var componentClass = {
     logger: LoggerComponent,
@@ -43,6 +46,8 @@ var componentClass = {
     avatarProp: AvatarPropertyCtrl,
     bag: BagComponent,
     mail: MailComponent,
+
+    cardsPool : cardsPoolComponent,
 
     AI: AIBehavior,
     buffCtrl: BuffCtrl,

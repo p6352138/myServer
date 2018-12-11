@@ -278,5 +278,11 @@ module.exports = {
     DrawType : {
         ONCE : 1,      // 抽一次
         QUINTIC : 5,   // 抽五次
+    },
+
+    DrawCardCode : {
+        OK : 1,
+        FAILD : 2,
     }
+
 }

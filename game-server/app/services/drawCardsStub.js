@@ -6,7 +6,6 @@
  
 let logger = require('pomelo-logger').getLogger('game', 'teamStub');
 let pomelo = require('pomelo');
-let heroData = require('../data/Hero')
 let cards = require('../data/Cards')
 
 let DrawCardsStub = function (opts) {
@@ -39,14 +38,18 @@ let DrawCardsStub = function (opts) {
 module.exports = DrawCardsStub;
 let pro = DrawCardsStub.prototype;
 
-pro.drawCard = function (cb) {
+pro.drawCard = function (entID,PoolID,cb) {
+   
     if (entInfo.id in this.ids)
         return cb({code: consts.TeamCode.IN_TEAM});
-    let team = this.createEmptyTeam(teamType, specialId);
+
+    /*let team = this.createEmptyTeam(teamType, specialId);
     this.ids[entInfo.id] = {
         teamID: team.id,
         sid: entInfo.sid,
-    }
+    }*/
+
+
     cb({code: consts.TeamCode.OK});
     team.addMember(entInfo);
 };
