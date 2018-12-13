@@ -71,8 +71,8 @@ pro._initOwnHeros = function (heros) {
     this.ownHeros = {};
     if (!heros) {
         // 新号默认英雄
-        this.addHero(1000, false);
-        this.addHero(2000, false);
+        //this.addHero(1000, false);
+        //this.addHero(2000, false);
         return;
     }
     for (let heroid in heros) {

@@ -49,7 +49,6 @@ pro.drawCard = function (entID,PoolID,cb) {
         sid: entInfo.sid,
     }*/
 
-
     cb({code: consts.TeamCode.OK});
     team.addMember(entInfo);
 };

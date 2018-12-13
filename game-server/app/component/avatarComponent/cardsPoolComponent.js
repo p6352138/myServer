@@ -42,6 +42,7 @@ pro.drawCard = function (id,type,next) {
     {
         result.push(drawHelp.drawCard(id,this.cards[0]));
         this.cards.splice(0,1);
+        //this.entity.hero.hasHero(heroid))
     }
     else if(type == consts.DrawType.QUINTIC)
     {
