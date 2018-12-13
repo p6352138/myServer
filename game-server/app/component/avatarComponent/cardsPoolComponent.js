@@ -24,12 +24,14 @@ pro.init = function(opts){
 }
 
 pro._initDbData = function (data) {
-    this.cards = data == null ? drawHelp.getCards() : data;
+    this.cards = data.cards == null ? drawHelp.getCards() : data.cards;
+    this.count = data.count == null ? 5 : data.count;
 };
 
 pro.getPersistData = function(){
     return {
-        cards: this.cards,
+        cards : this.cards,
+        count : this.count,
     }
 }
 
@@ -42,14 +44,16 @@ pro.drawCard = function (id,type,next) {
     {
         result.push(drawHelp.drawCard(id,this.cards[0]));
         this.cards.splice(0,1);
-        //this.entity.hero.hasHero(heroid))
+        this.entity.hero.hasHero(result[0]);
     }
     else if(type == consts.DrawType.QUINTIC)
     {
         for(var i =0;i<5;i++)
         {
-            result.push(drawHelp.drawCard(id,this.cards[0]));
+            var heroid = drawHelp.drawCard(id,this.cards[0]);
+            result.push(heroid);
             this.cards.splice(0,1);
+            this.entity.hero.hasHero(heroid);
         }
     }
 
@@ -61,7 +65,8 @@ pro.drawCard = function (id,type,next) {
 
     let resp = {
         code: consts.DrawCardCode.OK,
-        hero : result
+        hero : result,
+        count : this.count,
     }
     
     next(null, resp);
