@@ -20,35 +20,48 @@ let pro = BuildingComponent.prototype;
 pro.init = function(opts){
     this._initDbData(opts.building );
 
-    this.buildinger1 = null;
-    this.buildinger2 = null;
+    this.buildinger = new Array();
 }
 
 pro._initDbData = function (data) {
-    this.Santo = data.Santo == null ? 0 : data.Santo;
-    this.Residential = data.Residential == null ? 0 : data.Residential;
-    this.Champ = data.Champ == null ? 0 : data.Champ;
+    if(data == null)
+    {
+        this.buildings = new Array();
+
+        for(var key in buildingData)
+        {
+            this.buildings[key] = 0;
+        }
+    }
+    else
+    {
+        this.buildings = data;
+    }
+   
 };
 
 pro._getBuilding = function(id){
     switch(id)
     {
-
+        
     }
 }
 
+pro._creatBuildinger = function(id){
+    buildingData[id]
+    var building = {
+
+    };
+}
+
 pro.getPersistData = function(){
-    return {
-        Santo : this.Santo,
-        Residential : this.Residential,
-        Champ : this.Champ,
-    }
+    return this.buildings;
 }
 
 ///升级建筑
 pro.upgradeBuilding = function(id,next){
     ///没有空闲队列
-    if(this.buildinger1 != null && this.buildinger2 != null)
+    if(this.buildinger[0] != null && this.buildinger[1] != null)
         return next(null, {code: consts.BuildingCode.MAX_BUILDINGER});
 
     var data = buildingData[id];
@@ -57,7 +70,7 @@ pro.upgradeBuilding = function(id,next){
     if(data.Product.length <= curBuilding)
         return next(null, {code: consts.BuildingCode.MAX_LV});
     
-    if(this.buildinger1 == null)
+    if(this.buildinger[0] == null)
     {
         
     }
@@ -68,12 +81,7 @@ pro.newUpgradeBuilding = function(id,count,next){
     
 }
 
-//队列1 升级完成
-pro.building1Upgraded = function(){
-
-}
-
-//队列2 升级完成
-pro.building2Upgraded = function(){
+// 升级完成
+pro.buildingUpgraded = function(){
 
 }
