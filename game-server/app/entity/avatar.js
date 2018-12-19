@@ -16,7 +16,7 @@ var Avatar = function (opts) {
     opts = opts || {};
     // avatar组件
     opts.components = ['avatarProp', 'bag', 'friend', 'match', 'hero',
-        'dungeon', 'ladder', 'team', 'raid', 'mail', 'gm','cardsPool'];
+        'dungeon', 'ladder', 'team', 'raid', 'mail', 'gm','cardsPool','building'];
     Entity.call(this, opts);
 
     this.logoutTimer = null;

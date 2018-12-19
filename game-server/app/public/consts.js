@@ -82,6 +82,16 @@ module.exports = {
         SKILL_IN_PREPARE: -12,  // 吟唱和抬手准备中
     },
 
+    //建筑常量
+    Building : {
+        BUILDING_MAX : 2,  ///最大建筑队列
+    },
+
+    BuildingCode : {
+        MAX_LV : -1,            ///当前建筑已经是最大等级
+        MAX_BUILDINGER : -2,    //当前建筑队列已满
+    },
+
     // 卡牌属性定义
     CardAttri: {
         NORMAL_CARD: 1,  // 非消耗

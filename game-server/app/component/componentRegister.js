@@ -18,6 +18,7 @@ let BagComponent = _require('./avatarComponent/bagComponent');
 let MailComponent = _require('./avatarComponent/mailComponent');
 
 let cardsPoolComponent = _require('./avatarComponent/cardsPoolComponent')
+let buildingComponent = _require('./avatarComponent/buildingComponent')
 
 var AIBehavior = _require('./combatUnitComponent/aiBehavior');
 var BuffCtrl = _require('./combatUnitComponent/buffCtrl');
@@ -48,6 +49,7 @@ var componentClass = {
     mail: MailComponent,
 
     cardsPool : cardsPoolComponent,
+    building : buildingComponent,
 
     AI: AIBehavior,
     buffCtrl: BuffCtrl,

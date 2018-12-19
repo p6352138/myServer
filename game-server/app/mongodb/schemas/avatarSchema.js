@@ -18,6 +18,7 @@ var AvatarSchema = new Schema({
     mail: {},
     hero: {},
     cardsPool :{},
+    building : {},
 });
 
 AvatarSchema.set('toObject', { getters: true });
