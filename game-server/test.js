@@ -1,3 +1,4 @@
+/*
 var p = Math.random(), n = Math.random()/4;
 
 console.log('p == ',p,' n === ',n);
@@ -24,3 +25,21 @@ function randomInProbability( weights ){
 }
 
 var updateRandom = randomInProbability( 0.01, 0.03, 0.06, .09 );
+*/
+
+setTimeout(function(){
+  console.log('timeout1');
+});
+
+new Promise(function(resolve){
+  console.log('promise1');
+  for(var i = 0; i < 1000;i++)
+  {
+     i== 99 && resolve();
+  }
+  console.log('promise2');
+}).then(function(){
+  console.log('then1');
+})
+
+console.log('global1');

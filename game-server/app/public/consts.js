@@ -88,6 +88,7 @@ module.exports = {
     },
 
     BuildingCode : {
+        OK : 1,
         MAX_LV : -1,            ///当前建筑已经是最大等级
         MAX_BUILDINGER : -2,    //当前建筑队列已满
     },
