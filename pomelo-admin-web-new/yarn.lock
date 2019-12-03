@@ -364,7 +364,7 @@ compressible@~2.0.5:
 
 compression@~1.5.2:
   version "1.5.2"
-  resolved "http://registry.npmjs.org/compression/-/compression-1.5.2.tgz#b03b8d86e6f8ad29683cba8df91ddc6ffc77b395"
+  resolved "https://registry.npmjs.org/compression/-/compression-1.5.2.tgz#b03b8d86e6f8ad29683cba8df91ddc6ffc77b395"
   dependencies:
     accepts "~1.2.12"
     bytes "2.1.0"
@@ -575,6 +575,15 @@ double-ended-queue@^2.1.0-0:
 duplexify@^3.4.5:
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/duplexify/-/duplexify-3.5.4.tgz#4bb46c1796eabebeec4ca9a2e66b808cb7a3d8b4"
+  dependencies:
+    end-of-stream "^1.0.0"
+    inherits "^2.0.1"
+    readable-stream "^2.0.0"
+    stream-shift "^1.0.0"
+
+duplexify@^3.5.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/duplexify/-/duplexify-3.7.1.tgz#2a4df5317f6ccfd91f86d6fd25d8d8a103b88309"
   dependencies:
     end-of-stream "^1.0.0"
     inherits "^2.0.1"
@@ -1284,9 +1293,28 @@ mqtt-connection@3.0.0:
     mqtt-packet "^5.1.0"
     through2 "^2.0.1"
 
+mqtt-connection@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/mqtt-connection/-/mqtt-connection-3.2.0.tgz#2104d875ea917c46d25e89922c6694072910f408"
+  dependencies:
+    duplexify "^3.5.1"
+    inherits "^2.0.3"
+    mqtt-packet "^5.4.0"
+    safe-buffer "^5.1.1"
+    through2 "^2.0.1"
+
 mqtt-packet@^5.1.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/mqtt-packet/-/mqtt-packet-5.5.0.tgz#7f53244ba49fdecf795e950c14a9432dbf33bc63"
+  dependencies:
+    bl "^1.2.1"
+    inherits "^2.0.3"
+    process-nextick-args "^2.0.0"
+    safe-buffer "^5.1.0"
+
+mqtt-packet@^5.4.0:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/mqtt-packet/-/mqtt-packet-5.6.1.tgz#8ecafce091f5af460664268a22b22091c8915f7b"
   dependencies:
     bl "^1.2.1"
     inherits "^2.0.3"
@@ -1509,11 +1537,11 @@ pkginfo@0.2.x:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.2.3.tgz#7239c42a5ef6c30b8f328439d9b9ff71042490f8"
 
-pomelo-admin@1.0.0, pomelo-admin@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/pomelo-admin/-/pomelo-admin-1.0.0.tgz#917f72b521af95bc5342683aa4ec870be67f804e"
+pomelo-admin@1.0.1, pomelo-admin@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/pomelo-admin/-/pomelo-admin-1.0.1.tgz#90b736f98e618ab02f43f8df1fc7d65363029992"
   dependencies:
-    mqtt-connection "3.0.0"
+    mqtt-connection "3.2.0"
     pomelo-monitor "0.3.7"
     pomelo-scheduler "0.3.8"
 
@@ -1564,9 +1592,9 @@ pomelo-scheduler@0.3.9:
   dependencies:
     log4js "0.6.7"
 
-pomelo@^2.2.5:
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/pomelo/-/pomelo-2.2.5.tgz#198ac4cb6a6485e7b0c0c618ecd8cb7c2c326de3"
+pomelo@^2.2.7:
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/pomelo/-/pomelo-2.2.7.tgz#9b2704d43f76fc50f4f32127dd5d9dcd3e98b7d2"
   dependencies:
     async "0.2.5"
     cliff "0.1.8"
@@ -1575,7 +1603,7 @@ pomelo@^2.2.5:
     mkdirp "0.3.3"
     mqtt "0.3.9"
     node-bignumber "1.2.1"
-    pomelo-admin "1.0.0"
+    pomelo-admin "1.0.1"
     pomelo-loader "0.0.6"
     pomelo-logger "0.1.7"
     pomelo-protobuf "0.4.0"
